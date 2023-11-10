@@ -64,7 +64,7 @@ CREATE TABLE Reservacion (
 ); 
 
 	-- Creación de la tabla temporal "TipoPago" en caso de requerirse
-CREATE TABLE #TipoPago  (
+CREATE TABLE TipoPago  (
     MetodoPagoID INT PRIMARY KEY,
     TipoPago VARCHAR(50) NOT NULL
 );
@@ -80,7 +80,7 @@ CREATE TABLE Factura (
     EstadoPago VARCHAR(20),
     TipoPagoID INT,
     CONSTRAINT fk_UsuarioID_Factura FOREIGN KEY (UsuarioID) REFERENCES Usuario(UsuarioID),
-    CONSTRAINT fk_MetodoPagoID_Factura FOREIGN KEY (MetodoPagoID) REFERENCES #TipoPago(MetodoPagoID)
+    CONSTRAINT fk_MetodoPagoID_Factura FOREIGN KEY (MetodoPagoID) REFERENCES TipoPago(MetodoPagoID)
 );
 
 -- Creación de la tabla "DetalleFactura"
@@ -95,5 +95,5 @@ CREATE TABLE DetalleFactura (
     TipoPagoID INT,
     CONSTRAINT fk_FacturaID_DetalleFactura FOREIGN KEY (FacturaID) REFERENCES Factura(FacturaID),
     CONSTRAINT fk_ProductoID_DetalleFactura FOREIGN KEY (ProductoID) REFERENCES Producto(ProductoID),
-    CONSTRAINT fk_TipoPagoID_DetalleFactura FOREIGN KEY (TipoPagoID) REFERENCES #TipoPago(MetodoPagoID)
+    CONSTRAINT fk_TipoPagoID_DetalleFactura FOREIGN KEY (TipoPagoID) REFERENCES TipoPago(MetodoPagoID)
 );
