@@ -2,6 +2,7 @@ using BackEnd.Services.Implementations;
 using BackEnd.Services.Interfaces;
 using DAL.Implementations;
 using DAL.Interfaces;
+using Entities.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,7 @@ builder.Services.AddSwaggerGen();
 
 
 #region Dependency Injection
-builder.Services.AddDbContext<NorthWindContext>();
+builder.Services.AddDbContext<CucharaUrbanaContext>();
 builder.Services.AddScoped<IRolDAL, RolDALImpl>();
 builder.Services.AddScoped<IUnidadDeTrabajo, UnidadDeTrabajo>();
 builder.Services.AddScoped<IRolService, RolService>();

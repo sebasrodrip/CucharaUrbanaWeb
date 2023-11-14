@@ -10,20 +10,18 @@ namespace DAL.Implementations
 {
     public class UnidadDeTrabajo : IUnidadDeTrabajo
     {
-        public IRolDAL _categoryDAL { get;  }
-        public IShipperDAL _shipperDAL { get; }
+        public IRolDAL _rolDAL { get;  }
 
 
 
-        private readonly NorthWindContext _context;
 
-        public UnidadDeTrabajo(NorthWindContext context,
-                                IRolDAL categoryDAL,
-                                IShipperDAL shipperDAL)
+        private readonly CucharaUrbanaContext _context;
+
+        public UnidadDeTrabajo(CucharaUrbanaContext context,
+                                IRolDAL rolDAL)
         {
             _context = context;
-            _categoryDAL = categoryDAL;
-            _shipperDAL = shipperDAL;
+            _rolDAL = rolDAL;
         }
 
 

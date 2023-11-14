@@ -10,7 +10,7 @@ namespace DAL.Implementations
 {
     public class RolDALImpl : DALGenericoImpl<Rol>, IRolDAL
     {
-        public RolDALImpl(NorthWindContext context): base(context)
+        public RolDALImpl(CucharaUrbanaContext context): base(context)
         {
             
         }
