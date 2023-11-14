@@ -14,24 +14,24 @@ namespace FrontEnd.Helpers.Implementations
             _repository = serviceRepository;
         }
 
-        public CategoryViewModel AddCategory(CategoryViewModel categoryViewModel)
+        public RolViewModel AddRol(RolViewModel rolViewModel)
         {
 
-            CategoryViewModel category = new CategoryViewModel();
-            HttpResponseMessage responseMessage = _repository.PostResponse("api/Category", categoryViewModel);
+            RolViewModel rol = new RolViewModel();
+            HttpResponseMessage responseMessage = _repository.PostResponse("api/Rol", rolViewModel);
             if (responseMessage != null)
             {
                 var content = responseMessage.Content.ReadAsStringAsync().Result;
-                category = JsonConvert.DeserializeObject<CategoryViewModel>(content);
+                rol = JsonConvert.DeserializeObject<RolViewModel>(content);
             }
 
-            return category;
+            return rol;
         }
 
-        public void DeleteCategory(int id)
+        public void DeleteRol(int id)
         {
 
-            HttpResponseMessage responseMessage = _repository.DeleteResponse("api/Category/" + id.ToString());
+            HttpResponseMessage responseMessage = _repository.DeleteResponse("api/Rol/" + id.ToString());
             if (responseMessage != null)
             {
                 var content = responseMessage.Content.ReadAsStringAsync().Result;
@@ -41,46 +41,46 @@ namespace FrontEnd.Helpers.Implementations
 
         }
 
-        public CategoryViewModel EditCategory(CategoryViewModel categoryViewModel)
+        public RolViewModel EditRol(RolViewModel rolViewModel)
         {
 
-            CategoryViewModel category = new CategoryViewModel();
-            HttpResponseMessage responseMessage = _repository.PutResponse("api/Category", categoryViewModel);
+            RolViewModel rol = new RolViewModel();
+            HttpResponseMessage responseMessage = _repository.PutResponse("api/Rol", rolViewModel);
             if (responseMessage != null)
             {
                 var content = responseMessage.Content.ReadAsStringAsync().Result;
-                category = JsonConvert.DeserializeObject<CategoryViewModel>(content);
+                rol = JsonConvert.DeserializeObject<RolViewModel>(content);
             }
 
-            return category;
+            return rol;
         }
 
-        public List<CategoryViewModel> GetAll()
+        public List<RolViewModel> GetAll()
         {
 
-            List<CategoryViewModel> lista = new List<CategoryViewModel>();
+            List<RolViewModel> lista = new List<RolViewModel>();
 
-            HttpResponseMessage responseMessage = _repository.GetResponse("api/Category");
+            HttpResponseMessage responseMessage = _repository.GetResponse("api/Rol");
             if (responseMessage != null)
             {
                 var content = responseMessage.Content.ReadAsStringAsync().Result;
-                lista = JsonConvert.DeserializeObject<List<CategoryViewModel>>(content);
+                lista = JsonConvert.DeserializeObject<List<RolViewModel>>(content);
             }
 
             return lista;
         }
 
-        public CategoryViewModel GetById(int id)
+        public RolViewModel GetById(int id)
         {
-            CategoryViewModel category = new CategoryViewModel();
-            HttpResponseMessage responseMessage = _repository.GetResponse("api/Category/" + id.ToString());
+            RolViewModel rol = new RolViewModel();
+            HttpResponseMessage responseMessage = _repository.GetResponse("api/Rol/" + id.ToString());
             if (responseMessage != null)
             {
                 var content = responseMessage.Content.ReadAsStringAsync().Result;
-                category = JsonConvert.DeserializeObject<CategoryViewModel>(content);
+                rol = JsonConvert.DeserializeObject<RolViewModel>(content);
             }
 
-            return category;
+            return rol;
         }
     }
 }

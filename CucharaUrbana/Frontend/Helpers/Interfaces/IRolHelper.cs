@@ -4,12 +4,12 @@ namespace FrontEnd.Helpers.Interfaces
 {
     public interface IRolHelper
     {
-        List<CategoryViewModel> GetAll();
-        CategoryViewModel GetById(int id);
-        CategoryViewModel AddCategory(CategoryViewModel categoryViewModel);
-        CategoryViewModel EditCategory(CategoryViewModel categoryViewModel);
+        List<RolViewModel> GetAll();
+        RolViewModel GetById(int id);
+        RolViewModel AddRol(RolViewModel rolViewModel);
+        RolViewModel EditRol(RolViewModel rolViewModel);
 
-        void DeleteCategory(int id);
+        void DeleteRol(int id);
 
     }
 }
