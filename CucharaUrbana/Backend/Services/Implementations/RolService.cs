@@ -38,11 +38,11 @@ namespace Backend.Services.Implementations
             return rol;
         }
 
-        public async Task<IEnumerable<Rol>> GetCategoriesAsync()
+        public async Task<IEnumerable<Rol>> GetRolsAsync()
         {
-            IEnumerable<Rol> categories;
-            categories = await _unidadDeTrabajo._rolDAL.GetAll();
-            return categories;
+            IEnumerable<Rol> rols;
+            rols = await _unidadDeTrabajo._rolDAL.GetAll();
+            return rols;
         }
 
         public bool UpdateRol(Rol rol)

@@ -44,16 +44,16 @@ namespace Backend.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            IEnumerable<Rol> lista =  _rolService.GetCategoriesAsync().Result; 
-            List<RolModel> categories =  new List<RolModel>();
+            IEnumerable<Rol> lista =  _rolService.GetRolsAsync().Result; 
+            List<RolModel> rols =  new List<RolModel>();
 
             foreach (var item in lista)
             {
-                categories.Add(Convertir(item));
+                rols.Add(Convertir(item));
 
             }
 
-            return Ok(categories);
+            return Ok(rols);
         }
 
         // GET api/<RolController>/5
