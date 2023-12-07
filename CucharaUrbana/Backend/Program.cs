@@ -1,5 +1,5 @@
-using BackEnd.Services.Implementations;
-using BackEnd.Services.Interfaces;
+using Backend.Services.Implementations;
+using Backend.Services.Interfaces;
 using DAL.Implementations;
 using DAL.Interfaces;
 using Entities.Entities;
