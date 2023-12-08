@@ -56,8 +56,8 @@ namespace Backend.Services.Implementations
 
         public async Task<IEnumerable<Producto>> GetProductos()
         {
-            IEnumerable<Producto> productos = await _unidadDeTrabajo._productoDAL.GetAll();
-            return productos;
+                IEnumerable<Producto> productos = await _unidadDeTrabajo._productoDAL.GetAll();
+                return productos;
         }
 
         public Task<bool> Update(Producto producto)

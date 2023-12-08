@@ -16,10 +16,12 @@ namespace DAL.Implementations
         private readonly CucharaUrbanaContext _context;
 
         public UnidadDeTrabajo(CucharaUrbanaContext context,
-                                IFacturaDAL facturaDAL)
+                                IFacturaDAL facturaDAL,
+                                IProductoDAL productoDAL)
         {
             _context = context;
             _facturaDAL = facturaDAL;
+            _productoDAL = productoDAL;
         
         }
 
