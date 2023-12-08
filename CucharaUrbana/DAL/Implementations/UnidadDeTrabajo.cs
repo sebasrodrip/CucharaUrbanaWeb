@@ -11,6 +11,7 @@ namespace DAL.Implementations
     public class UnidadDeTrabajo : IUnidadDeTrabajo
     {
         public IFacturaDAL _facturaDAL { get; }
+        public IProductoDAL _productoDAL { get; }
 
         private readonly CucharaUrbanaContext _context;
 

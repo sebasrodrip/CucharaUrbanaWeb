@@ -10,6 +10,7 @@ namespace DAL.Interfaces
     {
 
         IFacturaDAL _facturaDAL { get; }
+        IProductoDAL _productoDAL { get; }
         bool Complete();
     }
 }
