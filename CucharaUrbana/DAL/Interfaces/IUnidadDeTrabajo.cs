@@ -10,6 +10,7 @@ namespace DAL.Interfaces
     {
 
         IRolDAL _rolDAL { get; }
+        ICategoriumDAL _categoriumDAL { get; }
         
 
         bool Complete();

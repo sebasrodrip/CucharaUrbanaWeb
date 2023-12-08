@@ -1,5 +1,7 @@
 using Backend.Services.Implementations;
 using Backend.Services.Interfaces;
+using BackEnd.Services.Implementations;
+using BackEnd.Services.Interfaces;
 using DAL.Implementations;
 using DAL.Interfaces;
 using Entities.Entities;
@@ -17,8 +19,11 @@ builder.Services.AddSwaggerGen();
 #region Dependency Injection
 builder.Services.AddDbContext<CucharaUrbanaContext>();
 builder.Services.AddScoped<IRolDAL, RolDALImpl>();
+builder.Services.AddScoped<ICategoriumDAL, CategoriumDALImpl>();
 builder.Services.AddScoped<IUnidadDeTrabajo, UnidadDeTrabajo>();
 builder.Services.AddScoped<IRolService, RolService>();
+builder.Services.AddScoped<ICategoriumService, CategoriumService>();
+
 
 
 #endregion

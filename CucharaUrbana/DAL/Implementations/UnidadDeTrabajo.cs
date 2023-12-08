@@ -11,6 +11,7 @@ namespace DAL.Implementations
     public class UnidadDeTrabajo : IUnidadDeTrabajo
     {
         public IRolDAL _rolDAL { get;  }
+        public ICategoriumDAL _categoriumDAL { get; }
 
 
 
@@ -18,10 +19,12 @@ namespace DAL.Implementations
         private readonly CucharaUrbanaContext _context;
 
         public UnidadDeTrabajo(CucharaUrbanaContext context,
-                                IRolDAL rolDAL)
+                                IRolDAL rolDAL,
+                                ICategoriumDAL categoriumDAL)
         {
             _context = context;
             _rolDAL = rolDAL;
+            _categoriumDAL = categoriumDAL;
         }
 
 
