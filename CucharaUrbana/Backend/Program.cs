@@ -19,6 +19,8 @@ builder.Services.AddDbContext<CucharaUrbanaContext>();
 builder.Services.AddScoped<IFacturaService, FacturaService>();
 builder.Services.AddScoped<IFacturaDAL, FacturaDALImpl>();
 builder.Services.AddScoped<IUnidadDeTrabajo, UnidadDeTrabajo>();
+builder.Services.AddScoped<IProductoService, ProductoService>();
+builder.Services.AddScoped<IProductoDAL, ProductoDALImpl>();
 #endregion
 
 var app = builder.Build();

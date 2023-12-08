@@ -9,7 +9,7 @@ namespace BackEnd.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductooController : ControllerBase
+    public class ProductoController : ControllerBase
     {
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace BackEnd.Controllers
 
         IProductoService _productoService;
 
-        public ProductooController(IProductoService productoService)
+        public ProductoController(IProductoService productoService)
         {
             _productoService = productoService;  
         }

@@ -7,50 +7,72 @@ namespace Backend.Services.Implementations
     public class ProductoService : IProductoService
     {
 
-        public IUnidadDeTrabajo _unidadDeTrabajo;
-
+        IUnidadDeTrabajo _unidadDeTrabajo;
         public ProductoService(IUnidadDeTrabajo unidadDeTrabajo)
         {
-                _unidadDeTrabajo = unidadDeTrabajo;
+            _unidadDeTrabajo = unidadDeTrabajo;
         }
 
-        public bool AddProducto(Producto productos)
-        {
-            bool resultado =_unidadDeTrabajo._productoDAL.Add(productos);
-            _unidadDeTrabajo.Complete();
 
-            return resultado;
+        public Task<bool> Add(Producto producto)
+        {
+            try
+            {
+                _unidadDeTrabajo._productoDAL.Add(producto);
+                _unidadDeTrabajo.Complete();
+                return Task.FromResult(true);
+            }
+            catch (Exception)
+            {
+
+                return Task.FromResult(false);
+            }
 
         }
 
-        public bool DeleteProducto(Producto productos)
+        public Task<bool> Delete(int id)
         {
-            bool resultado = _unidadDeTrabajo._productoDAL.Remove(productos);
-            _unidadDeTrabajo.Complete();
+            try
+            {
+                Producto producto = new Producto { ProductoId = id };
 
-            return resultado;
+                _unidadDeTrabajo._productoDAL.Remove(producto);
+                _unidadDeTrabajo.Complete();
+                return Task.FromResult(true);
+
+            }
+            catch (Exception)
+            {
+
+                return Task.FromResult(false); ;
+            }
         }
 
-        public Producto GetById(int id)
+        public async Task<Producto> GetById(int id)
         {
-            Producto productos;
-            productos =  _unidadDeTrabajo._productoDAL.Get(id);
+            Producto producto = _unidadDeTrabajo._productoDAL.Get(id);
+            return producto;
+        }
+
+        public async Task<IEnumerable<Producto>> GetProductos()
+        {
+            IEnumerable<Producto> productos = await _unidadDeTrabajo._productoDAL.GetAll();
             return productos;
         }
 
-        public async Task<IEnumerable<Producto>> GetProductoAsync()
+        public Task<bool> Update(Producto producto)
         {
-            IEnumerable<Producto> productos;
-            productos = await _unidadDeTrabajo._productoDAL.GetAll();
-            return productos;
-        }
+            try
+            {
+                _unidadDeTrabajo._productoDAL.Update(producto);
+                _unidadDeTrabajo.Complete();
+                return Task.FromResult(true);
+            }
+            catch (Exception)
+            {
 
-        public bool UpdateProducto(Producto productos)
-        {
-            bool resultado = _unidadDeTrabajo._productoDAL.Update(productos);
-            _unidadDeTrabajo.Complete();
-
-            return resultado;
+                return Task.FromResult(false);
+            }
         }
     }
 }
