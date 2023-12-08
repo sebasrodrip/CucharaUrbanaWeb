@@ -16,7 +16,7 @@ namespace Frontend.Helpers.Implementations
         public ServiceRepository()
         {
             Client = new HttpClient();
-            Client.BaseAddress = new Uri("http://localhost:5246");
+            Client.BaseAddress = new Uri("http://localhost:5246"); //Agregar ApiKey cuando esté implementado
 
         }
         public HttpResponseMessage GetResponse(string url)
