@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-    public interface IPedidosDAL : IDALGenerico<Pedidos>
+    public interface IPedidosDAL : IDALGenerico<Pedido>
     {
     }
 }

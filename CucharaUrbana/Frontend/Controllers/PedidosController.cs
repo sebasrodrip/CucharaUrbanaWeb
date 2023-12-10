@@ -42,7 +42,7 @@ namespace FrontEnd.Controllers
         {
             try
             {
-                pedidosHelper.AddCategory(pedidos);
+                pedidosHelper.AddPedidos(pedidos);
 
                 return RedirectToAction(nameof(Index));
             }

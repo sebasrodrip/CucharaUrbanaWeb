@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace DAL.Implementations
 {
-    public class PedidosDALImpl : DALGenericoImpl<Pedidos>, IPedidosDAL
+    public class PedidosDALImpl : DALGenericoImpl<Pedido>, IPedidosDAL
     {
-        public PedidosDALImpl(CucharaUrbana context): base(context)
+        public PedidosDALImpl(CucharaUrbanaContext context): base(context)
         {
             
         }

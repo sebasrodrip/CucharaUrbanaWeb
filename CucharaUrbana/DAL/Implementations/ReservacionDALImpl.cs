@@ -10,7 +10,7 @@ namespace DAL.Implementations
 {
     public class ReservacionDALImpl : DALGenericoImpl<Reservacion>, IReservacionDAL
     {
-        public ReservacionDALImpl(CucharaUrbana context) : base(context) 
+        public ReservacionDALImpl(CucharaUrbanaContext context) : base(context) 
         {
                 
         }

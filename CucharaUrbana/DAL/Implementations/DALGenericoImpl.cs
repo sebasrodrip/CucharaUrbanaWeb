@@ -13,10 +13,10 @@ namespace DAL.Implementations
     public class DALGenericoImpl<TEntity> : IDALGenerico<TEntity> where TEntity : class
     {
 
-        protected readonly CucharaUrbana _Context;
+        protected readonly CucharaUrbanaContext _Context;
 
 
-        public DALGenericoImpl(CucharaUrbana context)
+        public DALGenericoImpl(CucharaUrbanaContext context)
         {
             _Context = context;
         }
