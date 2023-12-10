@@ -10,6 +10,7 @@ builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IRolHelper, RolHelper>();
 builder.Services.AddScoped<IProductoHelper, ProductoHelper>();
 builder.Services.AddScoped<IFacturaHelper, FacturaHelper>();
+builder.Services.AddScoped<IPedidoHelper, PedidoHelper>();
 
 
 var app = builder.Build();
