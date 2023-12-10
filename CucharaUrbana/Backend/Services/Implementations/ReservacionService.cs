@@ -38,7 +38,7 @@ namespace Backend.Services.Implementations
             return reservacion;
         }
 
-        public async Task<IEnumerable<Reservacion>> GetCategoriesAsync()
+        public async Task<IEnumerable<Reservacion>> GetReservacionAsync()
         {
             IEnumerable<Reservacion> reservaciones;
             reservaciones = await _unidadDeTrabajo._reservacionDAL.GetAll();
