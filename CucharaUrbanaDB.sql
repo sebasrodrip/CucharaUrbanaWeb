@@ -35,6 +35,11 @@ CREATE TABLE Producto (
 	CONSTRAINT fk_CategoriaID_Producto FOREIGN KEY (CategoriaID) REFERENCES Categoria(CategoriaID)
 );
 
+ALTER TABLE Producto
+ADD Precio DECIMAL(10, 2);
+
+ALTER TABLE Producto
+ALTER COLUMN Descripcion VARCHAR(500);
 
 -- Creación de tabla Pedidos:
 
@@ -97,3 +102,38 @@ CREATE TABLE DetalleFactura (
     CONSTRAINT fk_ProductoID_DetalleFactura FOREIGN KEY (ProductoID) REFERENCES Producto(ProductoID),
     CONSTRAINT fk_TipoPagoID_DetalleFactura FOREIGN KEY (TipoPagoID) REFERENCES TipoPago(MetodoPagoID)
 );
+
+ALTER TABLE DetalleFactura
+DROP COLUMN PrecioUnitario;
+
+-- Inserts
+
+-- Insertar datos en la tabla Rol
+INSERT INTO Rol (RolID, NombreRol) VALUES (1, 'Administrador');
+INSERT INTO Rol (RolID, NombreRol) VALUES (2, 'Usuario');
+
+-- Insertar datos en la tabla Usuario
+INSERT INTO Usuario (UsuarioID, Nombre, Apellido, CorreoElectronico, RolID) VALUES (1, 'Juan', 'Perez', 'juan@example.com', 1);
+INSERT INTO Usuario (UsuarioID, Nombre, Apellido, CorreoElectronico, RolID) VALUES (2, 'Maria', 'Lopez', 'maria@example.com', 2);
+
+-- Insertar datos en la tabla Categoria
+INSERT INTO Categoria (CategoriaID, Nombre) VALUES (1, 'Comida');
+INSERT INTO Categoria (CategoriaID, Nombre) VALUES (2, 'Bebida');
+
+-- Insertar datos en la tabla Producto
+INSERT INTO Producto (ProductoID, Nombre, Descripcion, CategoriaID, Precio) VALUES (1, 'Melt Callejero', 
+'Pan de molde, 2 smash de carne, 2 rebanadas de cheddar, 2 rebanadas de queso americano, cebolla lentamente caramelizada, salsa urbana y derretido en mantequilla a la plancha', 1, 4600);
+INSERT INTO Producto (ProductoID,Nombre, Descripcion, CategoriaID, Precio) VALUES (2, 'Urban Classic Doble', 
+'Pan de papa, 2 smash de carne, 2 rebanadas de queso americano, 1 rebanada de queso cheddar, pepinilos de la casa, cebolla picada, salsa urbana', 1, 4600);
+INSERT INTO Producto (ProductoID,Nombre, Descripcion, CategoriaID, Precio) VALUES (3, 'Urban Classic Triple', 
+'Pan de papa, 3 smash de carne, 2 rebanadas de queso americano, 1 rebanada de queso cheddar, pepinilos de la casa, cebolla picada, salsa urbana', 1, 5300);
+INSERT INTO Producto (ProductoID,Nombre, Descripcion, CategoriaID, Precio) VALUES (4, 'Krunchy Bella', 
+'Pan de papa, 2 smash de carne, tocineta crujiente, cebolla crujiente, 1 rebanada de queso americano, 1 reabanada de queso cheddar y salsa urbana', 1, 4900);
+INSERT INTO Producto (ProductoID,Nombre, Descripcion, CategoriaID, Precio) VALUES (5, 'Juicy Luchi', 
+'Pan de papa, 2 smash de carne sin vuelta, en medio 1 rebanada de cheddar y 2 de queso americano, pepinillos, cebolla picada, kétchup y mostaza', 1, 4650);
+INSERT INTO Producto (ProductoID,Nombre, CategoriaID, Precio) VALUES (6, 'Extra papas fritas',  1, 1000);
+
+
+-- Insertar datos en la tabla TipoPago
+INSERT INTO TipoPago (MetodoPagoID, TipoPago) VALUES (1, 'Efectivo');
+INSERT INTO TipoPago (MetodoPagoID, TipoPago) VALUES (2, 'Tarjeta');
