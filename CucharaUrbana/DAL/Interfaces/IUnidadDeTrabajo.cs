@@ -13,8 +13,8 @@ namespace DAL.Interfaces
         IRolDAL _rolDAL { get; }
         ICategoriumDAL _categoriumDAL { get; }      
         IProductoDAL _productoDAL { get; }
-        IPedidosDAL _pedidosDAL { get; }
-        IReservacionDAL _reservacionDAL { get; }
+        IPedidoDAL _pedidosDAL { get; }
+        /*IReservacionDAL _reservacionDAL { get; }*/
 
         bool Complete();
     }
