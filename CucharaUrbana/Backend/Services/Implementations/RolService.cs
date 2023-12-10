@@ -23,7 +23,7 @@ namespace Backend.Services.Implementations
 
         }
 
-        public bool DeteleRol(Rol rol)
+        public bool DeleteRol(Rol rol)
         {
             bool resultado = _unidadDeTrabajo._rolDAL.Remove(rol);
             _unidadDeTrabajo.Complete();

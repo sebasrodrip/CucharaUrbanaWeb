@@ -100,7 +100,7 @@ namespace Backend.Controllers
                 CategoriaId = id
             };
 
-            _categoriumService.DeteleCategorium(categorium);
+            _categoriumService.DeleteCategorium(categorium);
 
             return Ok();
         }

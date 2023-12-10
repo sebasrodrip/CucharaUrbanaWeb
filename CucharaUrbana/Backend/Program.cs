@@ -1,7 +1,5 @@
 using Backend.Services.Implementations;
 using Backend.Services.Interfaces;
-using Backend.Services.Implementations;
-using Backend.Services.Interfaces;
 using DAL.Implementations;
 using DAL.Interfaces;
 using Entities.Entities;
@@ -28,7 +26,9 @@ builder.Services.AddScoped<ICategoriumDAL, CategoriumDALImpl>();
 builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<IProductoDAL, ProductoDALImpl>();
 builder.Services.AddScoped<IPedidoDAL, PedidoDALImpl>();
-/*builder.Services.AddScoped<IPedidoService, PedidoService>();*/
+builder.Services.AddScoped<IPedidoService, PedidoService>();
+builder.Services.AddScoped<IReservacionDAL, ReservacionDALImpl>();
+builder.Services.AddScoped<IReservacionService, ReservacionService>();
 #endregion
 
 
