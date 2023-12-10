@@ -5,11 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-
 builder.Services.AddHttpClient<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IRolHelper, RolHelper>();
+builder.Services.AddScoped<IProductoHelper, ProductoHelper>();
 
 
 var app = builder.Build();

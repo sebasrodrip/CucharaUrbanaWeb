@@ -14,12 +14,14 @@ namespace DAL.Implementations
         public IFacturaDAL _facturaDAL { get; }
         public IRolDAL _rolDAL { get;  }
         public ICategoriumDAL _categoriumDAL { get; }
+        public IProductoDAL _productoDAL { get; }
 
 
         private readonly CucharaUrbanaContext _context;
 
         public UnidadDeTrabajo(CucharaUrbanaContext context,
                                 IFacturaDAL facturaDAL,
+                                IProductoDAL productoDAL,
                                 IRolDAL rolDAL,
                                 ICategoriumDAL categoriumDAL)
         {
@@ -27,6 +29,7 @@ namespace DAL.Implementations
             _facturaDAL = facturaDAL;
             _rolDAL = rolDAL;
             _categoriumDAL = categoriumDAL;
+            _productoDAL = productoDAL;
         
         }
 

@@ -11,8 +11,9 @@ namespace DAL.Interfaces
 
         IFacturaDAL _facturaDAL { get; }
         IRolDAL _rolDAL { get; }
-        ICategoriumDAL _categoriumDAL { get; }
-        
+        ICategoriumDAL _categoriumDAL { get; }      
+        IProductoDAL _productoDAL { get; }
+
         bool Complete();
     }
 }
