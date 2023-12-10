@@ -1,10 +1,10 @@
-﻿using FrontEnd.Helpers.Implementations;
-using FrontEnd.Helpers.Interfaces;
-using FrontEnd.Models;
+﻿using Frontend.Helpers.Implementations;
+using Frontend.Helpers.Interfaces;
+using Frontend.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FrontEnd.Controllers
+namespace Frontend.Controllers
 {
     public class CategoriumController : Controller
     {

@@ -1,4 +1,4 @@
-﻿namespace FrontEnd.Models
+﻿namespace Frontend.Models
 {
     public class RolViewModel
     {

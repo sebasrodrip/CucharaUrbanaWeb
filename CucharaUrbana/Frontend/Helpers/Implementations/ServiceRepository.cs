@@ -4,9 +4,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Configuration;
+using Frontend.Helpers.Interfaces;
 
-
-namespace FrontEnd.Helpers.Implementations
+namespace Frontend.Helpers.Implementations
 {
 
     public class ServiceRepository : IServiceRepository

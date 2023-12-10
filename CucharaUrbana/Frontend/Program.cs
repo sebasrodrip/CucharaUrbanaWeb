@@ -1,5 +1,5 @@
-using FrontEnd.Helpers.Implementations;
-using FrontEnd.Helpers.Interfaces;
+using Frontend.Helpers.Implementations;
+using Frontend.Helpers.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

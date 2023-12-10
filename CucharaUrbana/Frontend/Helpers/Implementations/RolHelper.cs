@@ -1,8 +1,8 @@
-﻿using FrontEnd.Helpers.Interfaces;
-using FrontEnd.Models;
+﻿using Frontend.Helpers.Interfaces;
+using Frontend.Models;
 using Newtonsoft.Json;
 
-namespace FrontEnd.Helpers.Implementations
+namespace Frontend.Helpers.Implementations
 {
     public class RolHelper : IRolHelper
     {

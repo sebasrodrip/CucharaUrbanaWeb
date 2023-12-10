@@ -1,6 +1,6 @@
-﻿using FrontEnd.Models;
+﻿using Frontend.Models;
 
-namespace FrontEnd.Helpers.Interfaces
+namespace Frontend.Helpers.Interfaces
 {
     public interface ICategoriumHelper
     {
