@@ -1,4 +1,6 @@
-﻿namespace FrontEnd.Helpers.Interfaces
+
+﻿namespace Frontend.Helpers.Interfaces
+
 {
     public interface IServiceRepository
     {

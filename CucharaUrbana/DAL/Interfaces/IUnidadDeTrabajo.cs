@@ -9,10 +9,10 @@ namespace DAL.Interfaces
     public interface IUnidadDeTrabajo : IDisposable
     {
 
+        IFacturaDAL _facturaDAL { get; }
         IRolDAL _rolDAL { get; }
         ICategoriumDAL _categoriumDAL { get; }
         
-
         bool Complete();
     }
 }

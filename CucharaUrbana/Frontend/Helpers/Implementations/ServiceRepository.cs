@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Configuration;
-using FrontEnd.Helpers.Interfaces;
+
 
 namespace FrontEnd.Helpers.Implementations
 {
@@ -19,6 +19,7 @@ namespace FrontEnd.Helpers.Implementations
             string baseUrl = configuration.GetValue<string>("Backend:Url");
 
             Client.BaseAddress = new Uri(baseUrl);
+
 
         }
         public HttpResponseMessage GetResponse(string url)

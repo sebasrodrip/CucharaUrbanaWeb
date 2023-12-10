@@ -10,23 +10,25 @@ namespace DAL.Implementations
 {
     public class UnidadDeTrabajo : IUnidadDeTrabajo
     {
+
+        public IFacturaDAL _facturaDAL { get; }
         public IRolDAL _rolDAL { get;  }
         public ICategoriumDAL _categoriumDAL { get; }
-
-
 
 
         private readonly CucharaUrbanaContext _context;
 
         public UnidadDeTrabajo(CucharaUrbanaContext context,
+                                IFacturaDAL facturaDAL,
                                 IRolDAL rolDAL,
                                 ICategoriumDAL categoriumDAL)
         {
             _context = context;
+            _facturaDAL = facturaDAL;
             _rolDAL = rolDAL;
             _categoriumDAL = categoriumDAL;
+        
         }
-
 
 
         public bool Complete()
@@ -40,6 +42,7 @@ namespace DAL.Implementations
             {
 
                return false;
+
             }
         }
 
