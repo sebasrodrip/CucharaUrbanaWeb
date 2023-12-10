@@ -9,6 +9,7 @@ builder.Services.AddHttpClient<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IRolHelper, RolHelper>();
 builder.Services.AddScoped<IProductoHelper, ProductoHelper>();
+builder.Services.AddScoped<IFacturaHelper, FacturaHelper>();
 
 
 var app = builder.Build();

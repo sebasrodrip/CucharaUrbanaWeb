@@ -1,6 +1,6 @@
 ﻿using Entities.Entities;
 
-namespace BackEnd.Services.Interfaces
+namespace Backend.Services.Interfaces
 {
     public interface IReservacionService
     {

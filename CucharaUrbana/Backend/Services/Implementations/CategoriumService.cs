@@ -1,8 +1,8 @@
-﻿using BackEnd.Services.Interfaces;
+﻿using Backend.Services.Interfaces;
 using DAL.Interfaces;
 using Entities.Entities;
 
-namespace BackEnd.Services.Implementations
+namespace Backend.Services.Implementations
 {
     public class CategoriumService : ICategoriumService
     {
