@@ -16,7 +16,7 @@ namespace DAL.Implementations
         public ICategoriumDAL _categoriumDAL { get; }
         public IProductoDAL _productoDAL { get; }
         public IPedidoDAL _pedidosDAL { get;  }
-        /*public IReservacionDAL _reservacionDAL { get; }*/
+        public IReservacionDAL _reservacionDAL { get; }
 
         private readonly CucharaUrbanaContext _context;
 
@@ -25,8 +25,8 @@ namespace DAL.Implementations
                                 IProductoDAL productoDAL,
                                 IRolDAL rolDAL,
                                 ICategoriumDAL categoriumDAL,
-                                IPedidoDAL pedidosDAL
-                                /*IReservacionDAL reservacionDAL*/)
+                                IPedidoDAL pedidosDAL,
+                                IReservacionDAL reservacionDAL)
         {
             _context = context;
             _facturaDAL = facturaDAL;
@@ -34,8 +34,8 @@ namespace DAL.Implementations
             _categoriumDAL = categoriumDAL;
             _productoDAL = productoDAL;
             _pedidosDAL = pedidosDAL;
-            /*_reservacionDAL = reservacionDAL*/;        
-     
+            _reservacionDAL = reservacionDAL;
+
         }
 
 

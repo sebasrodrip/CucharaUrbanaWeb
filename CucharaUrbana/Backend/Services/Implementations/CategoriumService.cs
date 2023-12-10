@@ -23,7 +23,7 @@ namespace Backend.Services.Implementations
 
         }
 
-        public bool DeteleCategorium(Categorium categorium)
+        public bool DeleteCategorium(Categorium categorium)
         {
             bool resultado = _unidadDeTrabajo._categoriumDAL.Remove(categorium);
             _unidadDeTrabajo.Complete();

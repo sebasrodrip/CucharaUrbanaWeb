@@ -14,7 +14,7 @@ namespace DAL.Interfaces
         ICategoriumDAL _categoriumDAL { get; }      
         IProductoDAL _productoDAL { get; }
         IPedidoDAL _pedidosDAL { get; }
-        /*IReservacionDAL _reservacionDAL { get; }*/
+        IReservacionDAL _reservacionDAL { get; }
 
         bool Complete();
     }

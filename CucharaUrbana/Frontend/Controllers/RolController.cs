@@ -96,7 +96,7 @@ namespace Backend.Controllers
                 RolId = id
             };
 
-            _rolService.DeteleRol(rol);
+            _rolService.DeleteRol(rol);
 
             return Ok();
         }

@@ -8,7 +8,7 @@ namespace Backend.Services.Interfaces
         Categorium GetById(int id);
         bool AddCategorium(Categorium categorium);
         bool UpdateCategorium(Categorium categorium);
-        bool DeteleCategorium(Categorium categorium);
+        bool DeleteCategorium(Categorium categorium);
 
 
     }
