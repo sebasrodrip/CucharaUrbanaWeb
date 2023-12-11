@@ -3,8 +3,26 @@ using Backend.Services.Interfaces;
 using DAL.Implementations;
 using DAL.Interfaces;
 using Entities.Entities;
+using Entities.Utilities;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+#region ConnString
+
+string connString = builder
+                            .Configuration
+                            .GetConnectionString("DefaultConnection");
+
+
+builder.Services.AddDbContext<CucharaUrbanaContext>(options =>
+                        options.UseSqlServer(
+                           connString
+                            ));
+
+Util.ConnectionString = connString;
+
+#endregion
 
 // Add services to the container.
 

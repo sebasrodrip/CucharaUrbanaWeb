@@ -16,6 +16,7 @@ namespace Entities.Entities
         {
         }
 
+        public virtual DbSet<Carrito> Carritos { get; set; } = null!;
         public virtual DbSet<Categorium> Categoria { get; set; } = null!;
         public virtual DbSet<DetalleFactura> DetalleFacturas { get; set; } = null!;
         public virtual DbSet<Factura> Facturas { get; set; } = null!;
@@ -37,6 +38,35 @@ namespace Entities.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Carrito>(entity =>
+            {
+                entity.ToTable("Carrito");
+
+                entity.Property(e => e.CarritoId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("CarritoID");
+
+                entity.Property(e => e.PrecioUnitario).HasColumnType("decimal(10, 2)");
+
+                entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
+
+                entity.Property(e => e.Subtotal).HasColumnType("decimal(10, 2)");
+
+                entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
+
+                entity.HasOne(d => d.Producto)
+                    .WithMany(p => p.Carritos)
+                    .HasForeignKey(d => d.ProductoId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_ProductoID_Carrito");
+
+                entity.HasOne(d => d.Usuario)
+                    .WithMany(p => p.Carritos)
+                    .HasForeignKey(d => d.UsuarioId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_UsuarioID_Carrito");
+            });
+
             modelBuilder.Entity<Categorium>(entity =>
             {
                 entity.HasKey(e => e.CategoriaId)
@@ -67,8 +97,6 @@ namespace Entities.Entities
                 entity.Property(e => e.NombreProducto)
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                entity.Property(e => e.PrecioUnitario).HasColumnType("decimal(10, 2)");
 
                 entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
 
@@ -167,12 +195,14 @@ namespace Entities.Entities
                 entity.Property(e => e.CategoriaId).HasColumnName("CategoriaID");
 
                 entity.Property(e => e.Descripcion)
-                    .HasMaxLength(100)
+                    .HasMaxLength(500)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Precio).HasColumnType("decimal(10, 2)");
 
                 entity.HasOne(d => d.Categoria)
                     .WithMany(p => p.Productos)

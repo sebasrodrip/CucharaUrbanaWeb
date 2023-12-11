@@ -16,7 +16,7 @@ CREATE TABLE Usuario (
 
     FOREIGN KEY (RolID) REFERENCES Rol(RolID)
 );
-
+SELECT * FROM Usuario
 -- Crear Tabla Categorias
 
 CREATE TABLE Categoria (
@@ -40,6 +40,17 @@ ADD Precio DECIMAL(10, 2);
 
 ALTER TABLE Producto
 ALTER COLUMN Descripcion VARCHAR(500);
+
+CREATE TABLE Carrito (
+    CarritoID INT PRIMARY KEY,
+    UsuarioID INT NOT NULL,
+    ProductoID INT NOT NULL,
+    Cantidad INT NOT NULL,
+    PrecioUnitario DECIMAL(10, 2) NOT NULL,
+    Subtotal DECIMAL(10, 2) NOT NULL,
+    CONSTRAINT fk_UsuarioID_Carrito FOREIGN KEY (UsuarioID) REFERENCES Usuario(UsuarioID),
+    CONSTRAINT fk_ProductoID_Carrito FOREIGN KEY (ProductoID) REFERENCES Producto(ProductoID)
+);
 
 -- Creación de tabla Pedidos:
 
@@ -102,6 +113,8 @@ CREATE TABLE DetalleFactura (
     CONSTRAINT fk_ProductoID_DetalleFactura FOREIGN KEY (ProductoID) REFERENCES Producto(ProductoID),
     CONSTRAINT fk_TipoPagoID_DetalleFactura FOREIGN KEY (TipoPagoID) REFERENCES TipoPago(MetodoPagoID)
 );
+
+
 
 ALTER TABLE DetalleFactura
 DROP COLUMN PrecioUnitario;
