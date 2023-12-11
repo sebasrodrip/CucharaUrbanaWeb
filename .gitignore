@@ -396,4 +396,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-CucharaUrbana/Entities/Entities/CucharaUrbanaContext.cs
+/CucharaUrbana/Backend/appsettings.json

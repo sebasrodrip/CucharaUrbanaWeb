@@ -1,4 +1,4 @@
-﻿namespace BackEnd.Models
+﻿namespace Backend.Models
 {
     public class CategoriumModel
     {

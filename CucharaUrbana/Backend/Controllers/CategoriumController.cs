@@ -1,11 +1,11 @@
-﻿using BackEnd.Models;
-using BackEnd.Services.Interfaces;
+﻿using Backend.Models;
+using Backend.Services.Interfaces;
 using Entities.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace BackEnd.Controllers
+namespace Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -100,7 +100,7 @@ namespace BackEnd.Controllers
                 CategoriaId = id
             };
 
-            _categoriumService.DeteleCategorium(categorium);
+            _categoriumService.DeleteCategorium(categorium);
 
             return Ok();
         }

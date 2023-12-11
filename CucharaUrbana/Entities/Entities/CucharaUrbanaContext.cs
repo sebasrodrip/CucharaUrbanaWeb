@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using Entities.Utilities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Entities.Entities
 {
-    public partial class CucharaUrbanaContext : DbContext
+    public partial class CucharaUrbanaContext : IdentityDbContext<ApplicationUser>
     {
         public CucharaUrbanaContext()
         {
+            var optionBuilder = new DbContextOptionsBuilder<CucharaUrbanaContext>();
+            optionBuilder.UseSqlServer(Util.ConnectionString);
         }
 
         public CucharaUrbanaContext(DbContextOptions<CucharaUrbanaContext> options)
@@ -16,6 +20,7 @@ namespace Entities.Entities
         {
         }
 
+        public virtual DbSet<Carrito> Carritos { get; set; } = null!;
         public virtual DbSet<Categorium> Categoria { get; set; } = null!;
         public virtual DbSet<DetalleFactura> DetalleFacturas { get; set; } = null!;
         public virtual DbSet<Factura> Facturas { get; set; } = null!;
@@ -28,15 +33,42 @@ namespace Entities.Entities
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-RPRTGKD\\SQLEXPRESS;Database=CucharaUrbana;Integrated Security=True;TrustServerCertificate=false;");
-            }
+            optionsBuilder.UseSqlServer(Util.ConnectionString);
+            base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Carrito>(entity =>
+            {
+                entity.ToTable("Carrito");
+
+                entity.Property(e => e.CarritoId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("CarritoID");
+
+                entity.Property(e => e.PrecioUnitario).HasColumnType("decimal(10, 2)");
+
+                entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
+
+                entity.Property(e => e.Subtotal).HasColumnType("decimal(10, 2)");
+
+                entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
+
+                entity.HasOne(d => d.Producto)
+                    .WithMany(p => p.Carritos)
+                    .HasForeignKey(d => d.ProductoId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_ProductoID_Carrito");
+
+                entity.HasOne(d => d.Usuario)
+                    .WithMany(p => p.Carritos)
+                    .HasForeignKey(d => d.UsuarioId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_UsuarioID_Carrito");
+            });
+
             modelBuilder.Entity<Categorium>(entity =>
             {
                 entity.HasKey(e => e.CategoriaId)
@@ -67,8 +99,6 @@ namespace Entities.Entities
                 entity.Property(e => e.NombreProducto)
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                entity.Property(e => e.PrecioUnitario).HasColumnType("decimal(10, 2)");
 
                 entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
 
@@ -167,12 +197,14 @@ namespace Entities.Entities
                 entity.Property(e => e.CategoriaId).HasColumnName("CategoriaID");
 
                 entity.Property(e => e.Descripcion)
-                    .HasMaxLength(100)
+                    .HasMaxLength(500)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Precio).HasColumnType("decimal(10, 2)");
 
                 entity.HasOne(d => d.Categoria)
                     .WithMany(p => p.Productos)

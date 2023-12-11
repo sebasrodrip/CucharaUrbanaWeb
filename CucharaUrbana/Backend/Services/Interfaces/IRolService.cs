@@ -8,7 +8,7 @@ namespace Backend.Services.Interfaces
         Rol GetById(int id);
         bool AddRol(Rol rol);
         bool UpdateRol(Rol rol);
-        bool DeteleRol(Rol rol);
+        bool DeleteRol(Rol rol);
 
 
     }

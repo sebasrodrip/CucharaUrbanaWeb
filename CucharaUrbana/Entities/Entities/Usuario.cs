@@ -7,6 +7,7 @@ namespace Entities.Entities
     {
         public Usuario()
         {
+            Carritos = new HashSet<Carrito>();
             Facturas = new HashSet<Factura>();
             Pedidos = new HashSet<Pedido>();
             Reservacions = new HashSet<Reservacion>();
@@ -19,6 +20,7 @@ namespace Entities.Entities
         public int? RolId { get; set; }
 
         public virtual Rol? Rol { get; set; }
+        public virtual ICollection<Carrito> Carritos { get; set; }
         public virtual ICollection<Factura> Facturas { get; set; }
         public virtual ICollection<Pedido> Pedidos { get; set; }
         public virtual ICollection<Reservacion> Reservacions { get; set; }

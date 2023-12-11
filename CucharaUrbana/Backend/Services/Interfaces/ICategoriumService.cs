@@ -1,6 +1,6 @@
 ﻿using Entities.Entities;
 
-namespace BackEnd.Services.Interfaces
+namespace Backend.Services.Interfaces
 {
     public interface ICategoriumService
     {
@@ -8,7 +8,7 @@ namespace BackEnd.Services.Interfaces
         Categorium GetById(int id);
         bool AddCategorium(Categorium categorium);
         bool UpdateCategorium(Categorium categorium);
-        bool DeteleCategorium(Categorium categorium);
+        bool DeleteCategorium(Categorium categorium);
 
 
     }

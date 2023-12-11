@@ -1,8 +1,8 @@
-﻿using BackEnd.Services.Interfaces;
+﻿using Backend.Services.Interfaces;
 using DAL.Interfaces;
 using Entities.Entities;
 
-namespace BackEnd.Services.Implementations
+namespace Backend.Services.Implementations
 {
     public class CategoriumService : ICategoriumService
     {
@@ -23,7 +23,7 @@ namespace BackEnd.Services.Implementations
 
         }
 
-        public bool DeteleCategorium(Categorium categorium)
+        public bool DeleteCategorium(Categorium categorium)
         {
             bool resultado = _unidadDeTrabajo._categoriumDAL.Remove(categorium);
             _unidadDeTrabajo.Complete();
