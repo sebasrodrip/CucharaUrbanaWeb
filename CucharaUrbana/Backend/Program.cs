@@ -1,3 +1,4 @@
+using Backend.Middleware;
 using Backend.Services.Implementations;
 using Backend.Services.Interfaces;
 using DAL.Implementations;
