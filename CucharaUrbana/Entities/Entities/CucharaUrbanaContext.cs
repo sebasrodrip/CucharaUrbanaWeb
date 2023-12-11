@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using Entities.Utilities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Entities.Entities
 {
-    public partial class CucharaUrbanaContext : DbContext
+    public partial class CucharaUrbanaContext : IdentityDbContext<ApplicationUser>
     {
         public CucharaUrbanaContext()
         {
