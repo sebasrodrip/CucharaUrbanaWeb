@@ -7,6 +7,6 @@
         public string? Descripcion { get; set; }
         public int? CategoriaId { get; set; }
 
-       // public IEnumerable<CategoriumViewModel> Categorium { get; set; }  Descomentar cuando se añada el CategoriumViewModel
+        public IEnumerable<CategoriumViewModel> Categorium { get; set; }
     }
 }
