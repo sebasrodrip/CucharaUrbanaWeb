@@ -19,6 +19,7 @@ builder.Services.AddScoped<IProductoHelper, ProductoHelper>();
 builder.Services.AddScoped<IFacturaHelper, FacturaHelper>();
 builder.Services.AddScoped<IPedidoHelper, PedidoHelper>();
 builder.Services.AddScoped<ISecurityHelper, SecurityHelper>();
+builder.Services.AddScoped<ICarritoHelper, CarritoHelper>();
 
 
 var app = builder.Build();
