@@ -10,7 +10,6 @@ namespace Backend.Controllers
 {
     [Route("api/[controller]")]
 
-    [Authorize]
     [ApiController]
     public class ProductoController : ControllerBase
     {

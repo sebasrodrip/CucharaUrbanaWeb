@@ -35,7 +35,7 @@ Util.ConnectionString = connString;
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Host.UseSerilog((ctx, lc) => lc
-        .WriteTo.File("logs/logsBackEnd.txt", rollingInterval: RollingInterval.Day)
+        .WriteTo.File("logs/logsBackend.txt", rollingInterval: RollingInterval.Day)
         .MinimumLevel.Information()
 
 
@@ -138,7 +138,6 @@ if (app.Environment.IsDevelopment())
 app.UseMiddleware<ApiKeyMiddleware>();
 
 app.UseAuthentication();
-
 
 app.UseAuthorization();
 
