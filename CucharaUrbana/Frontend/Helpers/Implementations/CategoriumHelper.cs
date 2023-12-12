@@ -6,7 +6,7 @@ namespace Frontend.Helpers.Implementations
 {
     public class CategoriumHelper : ICategoriumHelper
     {
-
+        public string Token { get; set; }
         IServiceRepository _repository;
 
         public CategoriumHelper(IServiceRepository serviceRepository)

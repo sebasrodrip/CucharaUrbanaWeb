@@ -1,6 +1,7 @@
 ﻿using Backend.Models;
 using Backend.Services.Interfaces;
 using Entities.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -8,101 +9,105 @@ using Microsoft.AspNetCore.Mvc;
 namespace Backend.Controllers
 {
     [Route("api/[controller]")]
+
     [ApiController]
     public class CategoriumController : ControllerBase
     {
 
-        public ICategoriumService _categoriumService;
-        ILogger<CategoriumController> _logger;
-
-        private Categorium Convertir(CategoriumModel categorium)
-        {
-            return new Categorium
-            {
-                CategoriaId = categorium.CategoriaId,
-               Nombre = categorium.Nombre
-            };
-        
-        }
-
-
-        private CategoriumModel Convertir(Categorium categorium)
+        /// <summary>
+        /// Convierte Categorium en ProducModel
+        /// </summary>
+        /// <param name="categorium"></param>
+        /// <returns></returns>
+        CategoriumModel Convertir(Categorium categorium)
         {
             return new CategoriumModel
             {
                 CategoriaId = categorium.CategoriaId,
-                Nombre = categorium.Nombre
+                Nombre = categorium.Nombre,
             };
-
         }
 
-        public CategoriumController(ICategoriumService categoriumService, ILogger<CategoriumController> logger)
+
+        /// <summary>
+        /// Convierte CategoriumModel en Categorium
+        /// </summary>
+        /// <param name="categorium"></param>
+        /// <returns></returns>
+        Categorium Convertir(CategoriumModel categorium)
         {
-                _categoriumService = categoriumService;
-            _logger = logger;
+            return new Categorium
+            {
+                CategoriaId = categorium.CategoriaId,
+                Nombre = categorium.Nombre,
+            };
         }
+
+
+        ICategoriumService _categoriumService;
+
+        public CategoriumController(ICategoriumService categoriumService)
+        {
+            _categoriumService = categoriumService;
+        }
+
 
         // GET: api/<CategoriumController>
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            _logger.LogError("***********PRUEBA ERROR **************");
-            IEnumerable<Categorium> lista =  _categoriumService.GetCategoriesAsync().Result; 
-            List<CategoriumModel> categories =  new List<CategoriumModel>();
+            IEnumerable<Categorium> categoriums = await _categoriumService.GetCategoriesAsync();
+            List<CategoriumModel> categoriumModels = new List<CategoriumModel>();
 
-            foreach (var item in lista)
+            foreach (var item in categoriums)
             {
-                categories.Add(Convertir(item));
-
+                categoriumModels.Add(this.Convertir(item));
             }
 
-            return Ok(categories);
+
+            return Ok(categoriumModels);
         }
 
         // GET api/<CategoriumController>/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            _logger.LogInformation("***********PRUEBA INFROMACION  **************");
-            Categorium categorium = _categoriumService.GetById(id);
-            CategoriumModel categoriumModel = Convertir(categorium);
-
-            return Ok(categoriumModel);
+            Categorium categorium = await _categoriumService.GetById(id);
+            return Ok(this.Convertir(categorium));
         }
 
         // POST api/<CategoriumController>
         [HttpPost]
-        public IActionResult Post([FromBody] CategoriumModel categorium)
+        public async Task<IActionResult> Post([FromBody] CategoriumModel categoriumModel)
         {
-            Categorium entity = Convertir(categorium);
-            _categoriumService.AddCategorium(entity);
-            return Ok(Convertir(entity));
+            Categorium categorium = this.Convertir(categoriumModel);
 
+            _categoriumService.AddCategorium(categorium);
+
+
+
+            return Ok(Convertir(categorium));
         }
 
         // PUT api/<CategoriumController>/5
         [HttpPut]
-        public IActionResult Put( [FromBody] CategoriumModel categorium)
+        public async Task<IActionResult> Put([FromBody] CategoriumModel categoriumModel)
         {
-            Categorium entity = Convertir(categorium);
-            _categoriumService.UpdateCategorium(entity);
-            return Ok(Convertir(entity));
+            Categorium categorium = this.Convertir(categoriumModel);
+
+            _categoriumService.UpdateCategorium(categorium);
+
+
+
+            return Ok(Convertir(categorium));
         }
 
-
-
         // DELETE api/<CategoriumController>/5
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [HttpDelete]
+        public void Delete(int id)
         {
-            Categorium categorium = new Categorium
-            {
-                CategoriaId = id
-            };
+            _categoriumService.DeleteCategorium(id);
 
-            _categoriumService.DeleteCategorium(categorium);
-
-            return Ok();
         }
     }
 }

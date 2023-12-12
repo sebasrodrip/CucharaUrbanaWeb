@@ -20,6 +20,7 @@ builder.Services.AddScoped<IFacturaHelper, FacturaHelper>();
 builder.Services.AddScoped<IPedidoHelper, PedidoHelper>();
 builder.Services.AddScoped<ISecurityHelper, SecurityHelper>();
 builder.Services.AddScoped<ICarritoHelper, CarritoHelper>();
+builder.Services.AddScoped<ICategoriumHelper, CategoriumHelper>();
 
 
 var app = builder.Build();

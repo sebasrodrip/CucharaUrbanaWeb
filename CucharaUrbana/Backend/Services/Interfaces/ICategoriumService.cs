@@ -5,10 +5,10 @@ namespace Backend.Services.Interfaces
     public interface ICategoriumService
     {
         Task<IEnumerable<Categorium>> GetCategoriesAsync();
-        Categorium GetById(int id);
-        bool AddCategorium(Categorium categorium);
-        bool UpdateCategorium(Categorium categorium);
-        bool DeleteCategorium(Categorium categorium);
+        Task <Categorium> GetById(int id);
+        Task<bool> AddCategorium(Categorium categorium);
+        Task<bool> UpdateCategorium(Categorium categorium);
+        Task<bool> DeleteCategorium(int id);
 
 
     }

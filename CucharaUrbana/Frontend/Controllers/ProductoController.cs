@@ -14,16 +14,16 @@ namespace Frontend.Controllers
 
 
         IProductoHelper productoHelper;
-        // ICategoriumHelper categoriaHelper;
+        ICategoriumHelper categoriaHelper;
 
         public string Token { get; set; }
 
         public ProductoController(IProductoHelper _productoHelper
-                                  //  , ICategoriumHelper _categoriaHelper
+                                   , ICategoriumHelper _categoriaHelper
                 )
         {
             productoHelper = _productoHelper;
-           // categoriaHelper = _categoriaHelper;
+            categoriaHelper = _categoriaHelper;
         }
         // GET: ProductoController
         public ActionResult Index()
@@ -52,7 +52,7 @@ namespace Frontend.Controllers
 
 
             ProductoViewModel producto = new ProductoViewModel();
-            //producto.Categorium = categoriaHelper.GetAll();
+            producto.Categorium = categoriaHelper.GetAll();
 
 
 
@@ -80,7 +80,7 @@ namespace Frontend.Controllers
         public ActionResult Edit(int id)
         {
             ProductoViewModel producto = productoHelper.GetById(id);
-           // producto.Categorium = categoriaHelper.GetAll();
+           producto.Categorium = categoriaHelper.GetAll();
 
             return View(producto);
         }
