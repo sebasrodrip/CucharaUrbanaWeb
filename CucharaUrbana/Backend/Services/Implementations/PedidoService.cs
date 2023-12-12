@@ -7,50 +7,72 @@ namespace Backend.Services.Implementations
     public class PedidoService : IPedidoService
     {
 
-        public IUnidadDeTrabajo _unidadDeTrabajo;
-
+        IUnidadDeTrabajo _unidadDeTrabajo;
         public PedidoService(IUnidadDeTrabajo unidadDeTrabajo)
         {
             _unidadDeTrabajo = unidadDeTrabajo;
         }
 
-        public bool AddPedido(Pedido pedido)
-        {
-            bool resultado = _unidadDeTrabajo._pedidosDAL.Add(pedido);
-            _unidadDeTrabajo.Complete();
 
-            return resultado;
+        public Task<bool> AddPedido(Pedido pedido)
+        {
+            try
+            {
+                _unidadDeTrabajo._pedidosDAL.Add(pedido);
+                _unidadDeTrabajo.Complete();
+                return Task.FromResult(true);
+            }
+            catch (Exception)
+            {
+
+                return Task.FromResult(false);
+            }
 
         }
 
-        public bool DeletePedido(Pedido pedido)
+        public Task<bool> DeletePedido(int id)
         {
-            bool resultado = _unidadDeTrabajo._pedidosDAL.Remove(pedido);
-            _unidadDeTrabajo.Complete();
+            try
+            {
+                Pedido pedido = new Pedido { PedidoId = id };
 
-            return resultado;
+                _unidadDeTrabajo._pedidosDAL.Remove(pedido);
+                _unidadDeTrabajo.Complete();
+                return Task.FromResult(true);
+
+            }
+            catch (Exception)
+            {
+
+                return Task.FromResult(false); ;
+            }
         }
 
-        public Pedido GetById(int id)
+        public async Task<Pedido> GetById(int id)
         {
-            Pedido pedido;
-            pedido = _unidadDeTrabajo._pedidosDAL.Get(id);
+            Pedido pedido = _unidadDeTrabajo._pedidosDAL.Get(id);
             return pedido;
         }
 
         public async Task<IEnumerable<Pedido>> GetPedidosAsync()
         {
-            IEnumerable<Pedido> pedidos;
-            pedidos = await _unidadDeTrabajo._pedidosDAL.GetAll();
+            IEnumerable<Pedido> pedidos = await _unidadDeTrabajo._pedidosDAL.GetAll();
             return pedidos;
         }
 
-        public bool UpdatePedido(Pedido pedido)
+        public Task<bool> UpdatePedido(Pedido pedido)
         {
-            bool resultado = _unidadDeTrabajo._pedidosDAL.Update(pedido);
-            _unidadDeTrabajo.Complete();
+            try
+            {
+                _unidadDeTrabajo._pedidosDAL.Update(pedido);
+                _unidadDeTrabajo.Complete();
+                return Task.FromResult(true);
+            }
+            catch (Exception)
+            {
 
-            return resultado;
+                return Task.FromResult(false);
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ namespace Frontend.Helpers.Implementations;
 
 public class ProductoHelper : IProductoHelper
 {
+    public string Token { get; set; }
     IServiceRepository _repository;
 
     public ProductoHelper(IServiceRepository serviceRepository)

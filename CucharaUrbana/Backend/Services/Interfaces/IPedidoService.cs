@@ -5,10 +5,10 @@ namespace Backend.Services.Interfaces
     public interface IPedidoService
     {
         Task<IEnumerable<Pedido>> GetPedidosAsync();
-        Pedido GetById(int id);
-        bool AddPedido(Pedido pedido);
-        bool UpdatePedido(Pedido pedido);
-        bool DeletePedido(Pedido pedido);
+        Task<Pedido> GetById(int id);
+        Task<bool> AddPedido(Pedido pedido);
+        Task<bool> UpdatePedido(Pedido pedido);
+        Task<bool> DeletePedido(int id);
 
 
     }

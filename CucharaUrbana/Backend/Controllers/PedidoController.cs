@@ -1,4 +1,5 @@
 ﻿using Backend.Models;
+using Backend.Services.Implementations;
 using Backend.Services.Interfaces;
 using Entities.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -66,9 +67,9 @@ namespace Backend.Controllers
 
         // GET api/<PedidoController>/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            Pedido pedido = _pedidoService.GetById(id);
+            Pedido pedido = await _pedidoService.GetById(id);
             PedidoModel pedidoModel = Convertir(pedido);
 
             return Ok(pedidoModel);
@@ -96,17 +97,10 @@ namespace Backend.Controllers
 
 
         // DELETE api/<PedidoController>/5
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [HttpDelete]
+        public void Delete(int id)
         {
-            Pedido pedido = new Pedido
-            {
-                PedidoId = id
-            };
-
-            _pedidoService.DeletePedido(pedido);
-
-            return Ok();
+            _pedidoService.DeletePedido(id);
         }
     }
 }

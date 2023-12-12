@@ -1,17 +1,22 @@
 ﻿using Frontend.Helpers.Interfaces;
 using Frontend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Common;
 
 namespace Frontend.Controllers
 {
+    [Authorize]
     public class ProductoController : Controller
     {
 
 
 
         IProductoHelper productoHelper;
-       // ICategoriumHelper categoriaHelper;
+        // ICategoriumHelper categoriaHelper;
+
+        public string Token { get; set; }
 
         public ProductoController(IProductoHelper _productoHelper
                                   //  , ICategoriumHelper _categoriaHelper
@@ -23,6 +28,9 @@ namespace Frontend.Controllers
         // GET: ProductoController
         public ActionResult Index()
         {
+            Token = HttpContext.Session.GetString("token");
+            productoHelper.Token = Token;
+
             List<ProductoViewModel> productos = productoHelper.GetAll();
 
             return View(productos);
