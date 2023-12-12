@@ -11,13 +11,14 @@ namespace Frontend.Controllers
 
 
         IProductoHelper productoHelper;
+        ICategoriumHelper categoriaHelper;
 
         public ProductoController(IProductoHelper _productoHelper
-
+                                    , ICategoriumHelper _categoriaHelper
                 )
         {
             productoHelper = _productoHelper;
-
+            categoriaHelper = _categoriaHelper;
         }
         // GET: ProductoController
         public ActionResult Index()
@@ -42,7 +43,8 @@ namespace Frontend.Controllers
         {
 
 
-            ProductoViewModel producto = new ProductoViewModel(); 
+            ProductoViewModel producto = new ProductoViewModel();
+            producto.Categorium = categoriaHelper.GetAll();
 
 
 
@@ -70,6 +72,7 @@ namespace Frontend.Controllers
         public ActionResult Edit(int id)
         {
             ProductoViewModel producto = productoHelper.GetById(id);
+            producto.Categorium = categoriaHelper.GetAll();
 
             return View(producto);
         }

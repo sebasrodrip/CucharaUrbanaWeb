@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Frontend.Models.CarritoViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CarritoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioUnitario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subtotal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CarritoId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UsuarioId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductoId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cantidad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrecioUnitario)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subtotal)
+                </th>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.CarritoId }) |
+                    @Html.ActionLink("Details", "Details", new {  id=item.CarritoId  }) |
+                    @Html.ActionLink("Delete", "Delete", new {  id=item.CarritoId  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

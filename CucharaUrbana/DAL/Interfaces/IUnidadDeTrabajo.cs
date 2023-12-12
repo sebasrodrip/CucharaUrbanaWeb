@@ -16,6 +16,8 @@ namespace DAL.Interfaces
         IPedidoDAL _pedidosDAL { get; }
         IReservacionDAL _reservacionDAL { get; }
 
+        ICarritoDAL _carritoDAL { get; }
+
         bool Complete();
     }
 }

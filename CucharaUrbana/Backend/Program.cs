@@ -121,6 +121,8 @@ builder.Services.AddScoped<IPedidoDAL, PedidoDALImpl>();
 builder.Services.AddScoped<IPedidoService, PedidoService>();
 builder.Services.AddScoped<IReservacionDAL, ReservacionDALImpl>();
 builder.Services.AddScoped<IReservacionService, ReservacionService>();
+builder.Services.AddScoped<ICarritoDAL, CarritoDALImpl>();
+builder.Services.AddScoped<ICarritoService, CarritoService>();
 #endregion
 
 
