@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Images\**" />
+    <Content Remove="Images\**" />
+    <EmbeddedResource Remove="Images\**" />
+    <None Remove="Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\Juicy.jpg" />
+    <None Include="wwwroot\Images\Krunchy.jpg" />
+    <None Include="wwwroot\Images\Melted.jpg" />
+    <None Include="wwwroot\Images\Urban.jpg" />
     <None Remove="Views\Pedido\Index.cshtml~RF13b2d8.TMP" />
   </ItemGroup>
 
