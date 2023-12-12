@@ -35,7 +35,7 @@ Util.ConnectionString = connString;
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Host.UseSerilog((ctx, lc) => lc
-        .WriteTo.File("logs/logsBackEnd.txt", rollingInterval: RollingInterval.Day)
+        .WriteTo.File("logs/logsBackend.txt", rollingInterval: RollingInterval.Day)
         .MinimumLevel.Information()
 
 
@@ -121,6 +121,8 @@ builder.Services.AddScoped<IPedidoDAL, PedidoDALImpl>();
 builder.Services.AddScoped<IPedidoService, PedidoService>();
 builder.Services.AddScoped<IReservacionDAL, ReservacionDALImpl>();
 builder.Services.AddScoped<IReservacionService, ReservacionService>();
+builder.Services.AddScoped<ICarritoDAL, CarritoDALImpl>();
+builder.Services.AddScoped<ICarritoService, CarritoService>();
 #endregion
 
 
@@ -136,7 +138,6 @@ if (app.Environment.IsDevelopment())
 app.UseMiddleware<ApiKeyMiddleware>();
 
 app.UseAuthentication();
-
 
 app.UseAuthorization();
 

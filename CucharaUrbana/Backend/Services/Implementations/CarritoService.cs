@@ -4,21 +4,21 @@ using Entities.Entities;
 
 namespace Backend.Services.Implementations
 {
-    public class PedidoService : IPedidoService
+    public class CarritoService : ICarritoService
     {
 
         IUnidadDeTrabajo _unidadDeTrabajo;
-        public PedidoService(IUnidadDeTrabajo unidadDeTrabajo)
+        public CarritoService(IUnidadDeTrabajo unidadDeTrabajo)
         {
             _unidadDeTrabajo = unidadDeTrabajo;
         }
 
 
-        public Task<bool> AddPedido(Pedido pedido)
+        public Task<bool> Add(Carrito carrito)
         {
             try
             {
-                _unidadDeTrabajo._pedidosDAL.Add(pedido);
+                _unidadDeTrabajo._carritoDAL.Add(carrito);
                 _unidadDeTrabajo.Complete();
                 return Task.FromResult(true);
             }
@@ -30,13 +30,13 @@ namespace Backend.Services.Implementations
 
         }
 
-        public Task<bool> DeletePedido(int id)
+        public Task<bool> Delete(int id)
         {
             try
             {
-                Pedido pedido = new Pedido { PedidoId = id };
+                Carrito carrito = new Carrito { CarritoId = id };
 
-                _unidadDeTrabajo._pedidosDAL.Remove(pedido);
+                _unidadDeTrabajo._carritoDAL.Remove(carrito);
                 _unidadDeTrabajo.Complete();
                 return Task.FromResult(true);
 
@@ -48,23 +48,23 @@ namespace Backend.Services.Implementations
             }
         }
 
-        public async Task<Pedido> GetById(int id)
+        public async Task<Carrito> GetById(int id)
         {
-            Pedido pedido = _unidadDeTrabajo._pedidosDAL.Get(id);
-            return pedido;
+            Carrito carrito = _unidadDeTrabajo._carritoDAL.Get(id);
+            return carrito;
         }
 
-        public async Task<IEnumerable<Pedido>> GetPedidosAsync()
+        public async Task<IEnumerable<Carrito>> GetCarritos()
         {
-            IEnumerable<Pedido> pedidos = await _unidadDeTrabajo._pedidosDAL.GetAll();
-            return pedidos;
+                IEnumerable<Carrito> carritos = await _unidadDeTrabajo._carritoDAL.GetAll();
+                return carritos;
         }
 
-        public Task<bool> UpdatePedido(Pedido pedido)
+        public Task<bool> Update(Carrito carrito)
         {
             try
             {
-                _unidadDeTrabajo._pedidosDAL.Update(pedido);
+                _unidadDeTrabajo._carritoDAL.Update(carrito);
                 _unidadDeTrabajo.Complete();
                 return Task.FromResult(true);
             }

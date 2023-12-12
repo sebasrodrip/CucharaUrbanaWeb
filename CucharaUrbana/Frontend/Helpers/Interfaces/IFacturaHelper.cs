@@ -6,8 +6,8 @@ namespace Frontend.Helpers.Interfaces
     {
         List<FacturaViewModel> GetAll();
         FacturaViewModel GetById(int id);
-        FacturaViewModel AddFactura(FacturaViewModel categoryViewModel);
-        FacturaViewModel EditFactura(FacturaViewModel categoryViewModel);
+        FacturaViewModel AddFactura(FacturaViewModel FacturaViewModel);
+        FacturaViewModel EditFactura(FacturaViewModel FacturaViewModel);
 
         void DeleteFactura(int id);
 

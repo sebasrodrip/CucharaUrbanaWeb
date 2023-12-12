@@ -18,6 +18,7 @@
     <None Include="wwwroot\Images\Krunchy.jpg" />
     <None Include="wwwroot\Images\Melted.jpg" />
     <None Include="wwwroot\Images\Urban.jpg" />
+    <None Remove="Views\Pedido\Index.cshtml~RF13b2d8.TMP" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +30,13 @@
   <ItemGroup>
     <ProjectReference Include="..\Backend\Backend.csproj" />
 
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Pedido\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

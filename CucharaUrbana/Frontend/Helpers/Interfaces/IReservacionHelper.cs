@@ -6,8 +6,8 @@ namespace Frontend.Helpers.Interfaces
     {
         List<ReservacionViewModel> GetAll();
         ReservacionViewModel GetById(int id);
-        ReservacionViewModel AddReservacion(ReservacionViewModel reservacionViewModel);
-        ReservacionViewModel EditReservacion(ReservacionViewModel reservacionViewModel);
+        ReservacionViewModel AddReservacion(ReservacionViewModel ReservacionViewModel);
+        ReservacionViewModel EditReservacion(ReservacionViewModel ReservacionViewModel);
 
         void DeleteReservacion(int id);
 
