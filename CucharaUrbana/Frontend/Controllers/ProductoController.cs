@@ -93,7 +93,7 @@ namespace Frontend.Controllers
             try
             {
 
-                productoHelper.EdiProducto(producto);
+                productoHelper.EditProducto(producto);
                 return RedirectToAction(nameof(Index));
             }
             catch
