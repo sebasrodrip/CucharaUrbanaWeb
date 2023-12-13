@@ -19,12 +19,6 @@ namespace Backend.Controllers
             return new Factura
             {
                 FacturaId = factura.FacturaId,
-                FechaFactura = factura.FechaFactura,
-                UsuarioId = factura.UsuarioId,
-                Total = factura.Total,
-                PagoId = factura.PagoId,
-                MetodoPagoId = factura.MetodoPagoId,
-                EstadoPago = factura.EstadoPago,
                 TipoPagoId = factura.TipoPagoId
             };
         
@@ -36,12 +30,6 @@ namespace Backend.Controllers
             return new FacturaModel
             {
                 FacturaId = factura.FacturaId,
-                FechaFactura = factura.FechaFactura,
-                UsuarioId = factura.UsuarioId,
-                Total = factura.Total,
-                PagoId = factura.PagoId,
-                MetodoPagoId = factura.MetodoPagoId,
-                EstadoPago = factura.EstadoPago,
                 TipoPagoId = factura.TipoPagoId
             };
 

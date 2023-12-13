@@ -12,7 +12,6 @@ namespace DAL.Implementations
     {
 
         public IFacturaDAL _facturaDAL { get; }
-        public IRolDAL _rolDAL { get;  }
         public ICategoriumDAL _categoriumDAL { get; }
         public IProductoDAL _productoDAL { get; }
         public IPedidoDAL _pedidosDAL { get;  }
@@ -25,7 +24,6 @@ namespace DAL.Implementations
         public UnidadDeTrabajo(CucharaUrbanaContext context,
                                 IFacturaDAL facturaDAL,
                                 IProductoDAL productoDAL,
-                                IRolDAL rolDAL,
                                 ICategoriumDAL categoriumDAL,
                                 IPedidoDAL pedidosDAL,
                                 IReservacionDAL reservacionDAL,
@@ -33,7 +31,6 @@ namespace DAL.Implementations
         {
             _context = context;
             _facturaDAL = facturaDAL;
-            _rolDAL = rolDAL;
             _categoriumDAL = categoriumDAL;
             _productoDAL = productoDAL;
             _pedidosDAL = pedidosDAL;

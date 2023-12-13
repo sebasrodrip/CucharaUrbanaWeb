@@ -12,6 +12,5 @@ namespace Frontend.Models
         public int? ProductoId { get; set; }
 
         public virtual Producto? Producto { get; set; }
-        public virtual Usuario? Usuario { get; set; }
     }
 }

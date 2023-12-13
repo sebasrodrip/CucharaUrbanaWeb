@@ -22,7 +22,6 @@ namespace Backend.Controllers
                 PedidoId = pedido.PedidoId,
                 FechaPedido = pedido.FechaPedido,
                 MesaPedido = pedido.MesaPedido,
-                UsuarioId = pedido.UsuarioId,
                 EstadoPedido = pedido.EstadoPedido,
                 ProductoId = pedido.ProductoId
             };
@@ -37,7 +36,6 @@ namespace Backend.Controllers
                 PedidoId = pedido.PedidoId,
                 FechaPedido = pedido.FechaPedido,
                 MesaPedido = pedido.MesaPedido,
-                UsuarioId = pedido.UsuarioId,
                 EstadoPedido = pedido.EstadoPedido,
                 ProductoId = pedido.ProductoId
             };

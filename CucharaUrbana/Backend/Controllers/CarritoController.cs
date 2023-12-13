@@ -22,11 +22,9 @@ namespace Backend.Controllers
             return new CarritoModel
             {
                 CarritoId = carrito.CarritoId,
-                UsuarioId = carrito.UsuarioId,
                 ProductoId = carrito.ProductoId,
                 Cantidad = carrito.Cantidad,
                 PrecioUnitario = carrito.PrecioUnitario,
-                Subtotal = carrito.Subtotal,
             };
         }
 
@@ -41,11 +39,9 @@ namespace Backend.Controllers
             return new Carrito
             {
                 CarritoId = carrito.CarritoId,
-                UsuarioId = carrito.UsuarioId,
                 ProductoId = carrito.ProductoId,
                 Cantidad = carrito.Cantidad,
                 PrecioUnitario = carrito.PrecioUnitario,
-                Subtotal = carrito.Subtotal,
             };
         }
 

@@ -8,7 +8,6 @@ namespace Entities.Entities
         public Producto()
         {
             Carritos = new HashSet<Carrito>();
-            DetalleFacturas = new HashSet<DetalleFactura>();
             Pedidos = new HashSet<Pedido>();
         }
 
@@ -20,7 +19,6 @@ namespace Entities.Entities
 
         public virtual Categorium? Categoria { get; set; }
         public virtual ICollection<Carrito> Carritos { get; set; }
-        public virtual ICollection<DetalleFactura> DetalleFacturas { get; set; }
         public virtual ICollection<Pedido> Pedidos { get; set; }
     }
 }

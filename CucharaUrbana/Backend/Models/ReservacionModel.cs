@@ -12,7 +12,6 @@ namespace Backend.Models
         public TimeSpan HoraReservacion { get; set; }
         public int DetalleReservacion { get; set; }
 
-        public virtual Usuario? Usuario { get; set; }
 
     }
 }

@@ -19,13 +19,11 @@ namespace Backend.Controllers
             return new Reservacion
             {
                 ReservacionId = reservacion.ReservacionId,
-                UsuarioId = reservacion.UsuarioId,
                 FechaReservacion = reservacion.FechaReservacion,
                 MesaReservacion = reservacion.MesaReservacion,
                 HoraReservacion = reservacion.HoraReservacion,
                 DetalleReservacion = reservacion.DetalleReservacion,
 
-                Usuario = reservacion.Usuario
             };
 
         }
@@ -36,13 +34,11 @@ namespace Backend.Controllers
             return new ReservacionModel
             {
                 ReservacionId = reservacion.ReservacionId,
-                UsuarioId = reservacion.UsuarioId,
                 FechaReservacion = reservacion.FechaReservacion,
                 MesaReservacion = reservacion.MesaReservacion,
                 HoraReservacion = reservacion.HoraReservacion,
                 DetalleReservacion = reservacion.DetalleReservacion,
 
-                Usuario = reservacion.Usuario
             };
 
         }
