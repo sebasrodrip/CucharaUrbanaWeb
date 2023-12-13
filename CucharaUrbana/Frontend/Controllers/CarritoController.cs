@@ -9,13 +9,15 @@ namespace Frontend.Controllers
     {
 
         ICarritoHelper carritoHelper;
+        IProductoHelper productoHelper;
 
         public CarritoController(ICarritoHelper _carritoHelper
+, IProductoHelper _productoHelper
 
                 )
         {
             carritoHelper = _carritoHelper;
-
+            productoHelper = _productoHelper;
         }
         // GET: CarritoController
         public ActionResult Index()
@@ -36,13 +38,12 @@ namespace Frontend.Controllers
         }
 
         // GET: CarritoController/Create
-        public ActionResult Create()
+        public ActionResult Create(int q)
         {
 
 
-            CarritoViewModel carrito = new CarritoViewModel(); 
-
-
+            CarritoViewModel carrito = new CarritoViewModel();
+            carrito.Productos=productoHelper.GetAll();
 
             return View(carrito);
         }
@@ -68,6 +69,7 @@ namespace Frontend.Controllers
         public ActionResult Edit(int id)
         {
             CarritoViewModel carrito = carritoHelper.GetById(id);
+            carrito.Productos = productoHelper.GetAll();
 
             return View(carrito);
         }

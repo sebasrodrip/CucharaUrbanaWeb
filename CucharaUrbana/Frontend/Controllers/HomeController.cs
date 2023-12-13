@@ -23,7 +23,6 @@ namespace Frontend.Controllers
             List<ProductoViewModel> productos = productoHelper.GetAll();
 
             return View(productos);
-            return View();
         }
 
         public IActionResult Privacy()
@@ -35,6 +34,16 @@ namespace Frontend.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult AgregarCarrito(int id)
+        {
+            ProductoViewModel producto = productoHelper.GetById(id);
+
+            CarritoViewModel carrito = new CarritoViewModel();
+            carrito.ProductoId = id;
+
+            return View();
         }
     }
 }
