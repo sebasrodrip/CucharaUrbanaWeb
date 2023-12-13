@@ -19,7 +19,7 @@ namespace Frontend.Controllers
         public string Token { get; set; }
 
         public ProductoController(IProductoHelper _productoHelper
-                                   , ICategoriumHelper _categoriaHelper
+                                   ,ICategoriumHelper _categoriaHelper
                 )
         {
             productoHelper = _productoHelper;
@@ -80,7 +80,7 @@ namespace Frontend.Controllers
         public ActionResult Edit(int id)
         {
             ProductoViewModel producto = productoHelper.GetById(id);
-           producto.Categorium = categoriaHelper.GetAll();
+            producto.Categorium = categoriaHelper.GetAll();
 
             return View(producto);
         }
