@@ -77,6 +77,10 @@ namespace Entities.Entities
                     .HasMaxLength(500)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Fecha)
+                    .HasColumnType("smalldatetime")
+                    .HasDefaultValueSql("(sysdatetime())");
+
                 entity.Property(e => e.Subtotal).HasColumnType("decimal(10, 2)");
 
                 entity.Property(e => e.TipoPagoId).HasColumnName("TipoPagoID");

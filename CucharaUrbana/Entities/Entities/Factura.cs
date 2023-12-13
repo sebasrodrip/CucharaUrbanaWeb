@@ -10,6 +10,7 @@ namespace Entities.Entities
         public int? CarritoId { get; set; }
         public decimal Subtotal { get; set; }
         public int? TipoPagoId { get; set; }
+        public DateTime? Fecha { get; set; }
 
         public virtual Carrito? Carrito { get; set; }
         public virtual TipoPago? TipoPago { get; set; }
