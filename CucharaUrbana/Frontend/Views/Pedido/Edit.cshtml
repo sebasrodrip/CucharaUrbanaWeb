@@ -1,0 +1,55 @@
+﻿@model Frontend.Models.PedidoViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Pedido</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PedidoId" />
+
+            <div class="form-group">
+                <label asp-for="FechaPedido"></label>
+                <input asp-for="FechaPedido" class="form-control" />
+                <span asp-validation-for="FechaPedido" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MesaPedido"></label>
+                <input asp-for="MesaPedido" class="form-control" />
+                <span asp-validation-for="MesaPedido" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EstadoPedido"></label>
+                <input asp-for="EstadoPedido" class="form-control" />
+                <span asp-validation-for="EstadoPedido" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ProductoId"></label>
+                <input asp-for="ProductoId" class="form-control" />
+                <span asp-validation-for="ProductoId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ProductoId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.ProductoId, new SelectList(Model.Productos, "ProductoId", "Nombre"), "--Seleccionar Producto--")
+                <span asp-validation-for="ProductoId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
