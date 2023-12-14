@@ -8,7 +8,6 @@ namespace Entities.Entities
         public int ReservacionId { get; set; }
         public DateTime FechaReservacion { get; set; }
         public int MesaReservacion { get; set; }
-        public TimeSpan HoraReservacion { get; set; }
         public int DetalleReservacion { get; set; }
     }
 }

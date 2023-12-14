@@ -21,7 +21,6 @@ namespace Backend.Controllers
                 ReservacionId = reservacion.ReservacionId,
                 FechaReservacion = reservacion.FechaReservacion,
                 MesaReservacion = reservacion.MesaReservacion,
-                HoraReservacion = reservacion.HoraReservacion,
                 DetalleReservacion = reservacion.DetalleReservacion,
 
             };
@@ -36,7 +35,6 @@ namespace Backend.Controllers
                 ReservacionId = reservacion.ReservacionId,
                 FechaReservacion = reservacion.FechaReservacion,
                 MesaReservacion = reservacion.MesaReservacion,
-                HoraReservacion = reservacion.HoraReservacion,
                 DetalleReservacion = reservacion.DetalleReservacion,
 
             };

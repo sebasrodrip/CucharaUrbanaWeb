@@ -1,63 +1,45 @@
-﻿@model Frontend.Models.ReservacionViewModel
+﻿@model IEnumerable<Frontend.Models.ReservacionViewModel>
 
 @{
     ViewData["Title"] = "Reservacion";
 }
-<h1>Create</h1>
-
-<h4>ReservacionViewModel</h4>
-<hr />
-
-<!-- book section -->
-<section class="book_section layout_padding">
-    <div class="container">
-        <div class="heading_container">
-            <h2>
-                Book A Table
-            </h2>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form_container">
-                    <form asp-action="Create">
-                        <div>
-                            <label asp-for="FechaReservacion" class="control-label"></label>
-                            <input asp-for="FechaReservacion" class="form-control" />
-                            <span asp-validation-for="FechaReservacion" class="text-danger"></span>
-                        </div>
-                        <div>
-                            <label asp-for="MesaReservacion" class="control-label"></label>
-                            <input asp-for="MesaReservacion" class="form-control" />
-                            <span asp-validation-for="MesaReservacion" class="text-danger"></span>
-                        </div>
-                        <div>
-                            <label asp-for="HoraReservacion" class="control-label"></label>
-                            <input asp-for="HoraReservacion" class="form-control" />
-                            <span asp-validation-for="HoraReservacion" class="text-danger"></span>
-                        </div>
-                        <div>
-                            <label asp-for="DetalleReservacion" class="control-label"></label>
-                            <input asp-for="DetalleReservacion" class="form-control" />
-                            <span asp-validation-for="DetalleReservacion" class="text-danger"></span>
-                        </div>
-                        <div class="btn_box">
-                            <button type="submit" value="Create">
-                                Reservar
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="map_container ">
-                    <div id="googleMap"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end book section -->
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservacionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaReservacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MesaReservacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DetalleReservacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReservacionId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaReservacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MesaReservacion)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ReservacionId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ReservacionId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ReservacionId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
