@@ -1,24 +1,27 @@
-﻿using Frontend.Helpers.Implementations;
-using Frontend.Helpers.Interfaces;
+﻿using Frontend.Helpers.Interfaces;
 using Frontend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Common;
+using System;
+using System.Collections.Generic;
 
 namespace Frontend.Controllers
 {
+    [Authorize]
     public class PedidoController : Controller
     {
-
         IPedidoHelper pedidoHelper;
+        IProductoHelper productoHelper; // Asegúrate de tener este helper si es necesario
 
 
-        public PedidoController(IPedidoHelper _pedidoHelper)
 
+        public PedidoController(IPedidoHelper _pedidoHelper, IProductoHelper _productoHelper)
         {
             pedidoHelper = _pedidoHelper;
+            productoHelper = _productoHelper;
         }
-
-
 
         // GET: PedidoController
         public ActionResult Index()
@@ -34,13 +37,17 @@ namespace Frontend.Controllers
         public ActionResult Details(int id)
         {
             PedidoViewModel pedido = pedidoHelper.GetById(id);
+
             return View(pedido);
         }
 
         // GET: PedidoController/Create
         public ActionResult Create()
         {
-            return View();
+            PedidoViewModel pedido = new PedidoViewModel();
+            pedido.Productos = productoHelper.GetAll(); // Ajusta esto según tu lógica
+
+            return View(pedido);
         }
 
         // POST: PedidoController/Create
@@ -54,8 +61,9 @@ namespace Frontend.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
+                // Manejar la excepción según tus necesidades
                 return View();
             }
         }
@@ -64,6 +72,8 @@ namespace Frontend.Controllers
         public ActionResult Edit(int id)
         {
             PedidoViewModel pedido = pedidoHelper.GetById(id);
+            pedido.Productos = productoHelper.GetAll(); // Ajusta esto según tu lógica
+
             return View(pedido);
         }
 
@@ -74,11 +84,12 @@ namespace Frontend.Controllers
         {
             try
             {
-                PedidoViewModel pedidoViewModel = pedidoHelper.EditPedido(pedido);
+                pedidoHelper.EditPedido(pedido);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
+                // Manejar la excepción según tus necesidades
                 return View();
             }
         }
@@ -87,6 +98,7 @@ namespace Frontend.Controllers
         public ActionResult Delete(int id)
         {
             PedidoViewModel pedido = pedidoHelper.GetById(id);
+
             return View(pedido);
         }
 
@@ -100,8 +112,9 @@ namespace Frontend.Controllers
                 pedidoHelper.DeletePedido(pedido.PedidoId);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
+                // Manejar la excepción según tus necesidades
                 return View();
             }
         }
