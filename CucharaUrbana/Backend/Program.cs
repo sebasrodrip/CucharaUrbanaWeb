@@ -107,7 +107,6 @@ builder.Services.AddAuthentication(options =>
 #endregion
 
 #region Dependecy Injection
-builder.Services.AddDbContext<CucharaUrbanaContext>();
 builder.Services.AddScoped<IFacturaService, FacturaService>();
 builder.Services.AddScoped<IFacturaDAL, FacturaDALImpl>();
 builder.Services.AddScoped<IUnidadDeTrabajo, UnidadDeTrabajo>();

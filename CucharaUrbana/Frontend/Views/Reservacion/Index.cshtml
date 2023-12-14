@@ -3,20 +3,11 @@
 @{
     ViewData["Title"] = "Reservacion";
 }
-
-<h1>Reservación</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.ReservacionId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UsuarioId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FechaReservacion)
@@ -25,41 +16,30 @@
                 @Html.DisplayNameFor(model => model.MesaReservacion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HoraReservacion)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.DetalleReservacion)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservacionId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UsuarioId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaReservacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MesaReservacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoraReservacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DetalleReservacion)
-            </td>
-            <td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReservacionId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaReservacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MesaReservacion)
+                </td>
+                <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ReservacionId }) |
                     @Html.ActionLink("Details", "Details", new { id = item.ReservacionId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.ReservacionId })
-            </td>
-        </tr>
-}
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

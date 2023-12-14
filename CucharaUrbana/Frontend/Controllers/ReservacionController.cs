@@ -1,6 +1,7 @@
 ﻿using Frontend.Helpers.Implementations;
 using Frontend.Helpers.Interfaces;
 using Frontend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,7 @@ namespace Frontend.Controllers
 
         IReservacionHelper reservacionHelper;
 
+        public string Token { get; set; }
 
         public ReservacionController(IReservacionHelper _reservacionHelper)
 
@@ -21,14 +23,16 @@ namespace Frontend.Controllers
 
 
         // GET: ReservacionController
+        [Authorize]
         public ActionResult Index()
         {
-
+            Token = HttpContext.Session.GetString("token");
+            reservacionHelper.Token = Token;
 
             List<ReservacionViewModel> reservaciones = reservacionHelper.GetAll();
 
             return View(reservaciones);
-        }
+        } 
 
         // GET: ReservacionController/Details/5
         public ActionResult Details(int id)

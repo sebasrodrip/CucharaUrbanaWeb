@@ -31,22 +31,22 @@ namespace Backend.Services.Implementations
         }
 
         public Task<bool> Delete(int id)
-        {
-            try
-            {
-                Producto producto = new Producto { ProductoId = id };
+         {
+             try
+             {
+                 Producto producto = new Producto { ProductoId = id };
 
-                _unidadDeTrabajo._productoDAL.Remove(producto);
-                _unidadDeTrabajo.Complete();
-                return Task.FromResult(true);
+                 _unidadDeTrabajo._productoDAL.Remove(producto);
+                 _unidadDeTrabajo.Complete();
+                 return Task.FromResult(true);
 
-            }
-            catch (Exception)
-            {
+             }
+             catch (Exception)
+             {
 
-                return Task.FromResult(false); ;
-            }
-        }
+                 return Task.FromResult(false); ;
+             }
+         }
 
         public async Task<Producto> GetById(int id)
         {

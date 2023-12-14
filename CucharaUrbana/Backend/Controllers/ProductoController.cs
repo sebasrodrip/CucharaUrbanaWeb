@@ -1,4 +1,5 @@
 ﻿using Backend.Models;
+using Backend.Services.Implementations;
 using Backend.Services.Interfaces;
 using Entities.Entities;
 using Microsoft.AspNetCore.Authorization;
@@ -26,8 +27,8 @@ namespace Backend.Controllers
                 ProductoId = producto.ProductoId,
                 Nombre = producto.Nombre,
                 Descripcion = producto.Descripcion,
-                CategoriaId = producto.CategoriaId
-
+                CategoriaId = producto.CategoriaId,
+                Precio = producto.Precio
             };
         }
 
@@ -44,8 +45,8 @@ namespace Backend.Controllers
                 ProductoId = producto.ProductoId,
                 Nombre = producto.Nombre,
                 Descripcion = producto.Descripcion,
-                CategoriaId = producto.CategoriaId
-
+                CategoriaId = producto.CategoriaId,
+                Precio = producto.Precio
             };
         }
 
@@ -113,7 +114,6 @@ namespace Backend.Controllers
         public void Delete(int id)
         {
             _productoService.Delete(id);
-
         }
     }
 }

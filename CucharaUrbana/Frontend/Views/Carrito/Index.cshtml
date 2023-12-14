@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Carrito</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -14,9 +14,6 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.CarritoId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UsuarioId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ProductoId)
@@ -36,24 +33,21 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.CarritoId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.UsuarioId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ProductoId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cantidad)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PrecioUnitario)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Subtotal)
-                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarritoId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductoId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrecioUnitario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subtotal)
+                </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new {  id=item.CarritoId }) |
                     @Html.ActionLink("Details", "Details", new {  id=item.CarritoId  }) |

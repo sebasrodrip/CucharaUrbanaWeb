@@ -3,8 +3,6 @@
     public class CarritoViewModel
     {
         public int CarritoId { get; set; }
-        public int UsuarioId { get; set; }
-        public IEnumerable<UserViewModel> Users { get; set; }
         public int ProductoId { get; set; }
         public IEnumerable<ProductoViewModel> Productos { get; set; }
         public int Cantidad { get; set; }
