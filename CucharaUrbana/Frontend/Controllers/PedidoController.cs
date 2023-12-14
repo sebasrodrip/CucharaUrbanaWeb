@@ -15,7 +15,7 @@ namespace Frontend.Controllers
         IPedidoHelper pedidoHelper;
         IProductoHelper productoHelper; // Asegúrate de tener este helper si es necesario
 
-        public string Token { get; set; }
+
 
         public PedidoController(IPedidoHelper _pedidoHelper, IProductoHelper _productoHelper)
         {
@@ -26,8 +26,7 @@ namespace Frontend.Controllers
         // GET: PedidoController
         public ActionResult Index()
         {
-            Token = HttpContext.Session.GetString("token");
-            productoHelper.Token = Token;
+
 
             List<PedidoViewModel> pedidos = pedidoHelper.GetAll();
 

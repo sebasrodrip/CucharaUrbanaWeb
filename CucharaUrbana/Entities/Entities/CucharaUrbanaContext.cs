@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using Entities.Utilities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Entities.Entities
 {
-    public partial class CucharaUrbanaContext : DbContext
+    public partial class CucharaUrbanaContext : IdentityDbContext<ApplicationUser>
     {
         public CucharaUrbanaContext()
         {
+            var optionBuilder = new DbContextOptionsBuilder<CucharaUrbanaContext>();
+            optionBuilder.UseSqlServer(Util.ConnectionString);
         }
 
         public CucharaUrbanaContext(DbContextOptions<CucharaUrbanaContext> options)
             : base(options)
         {
         }
-
         public virtual DbSet<Carrito> Carritos { get; set; } = null!;
         public virtual DbSet<Categorium> Categoria { get; set; } = null!;
         public virtual DbSet<Factura> Facturas { get; set; } = null!;
@@ -26,15 +29,13 @@ namespace Entities.Entities
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=.;Database=CucharaUrbana;Integrated Security=True;TrustServerCertificate=false;");
-            }
+            optionsBuilder.UseSqlServer(Util.ConnectionString);
+            base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Carrito>(entity =>
             {
                 entity.ToTable("Carrito");
@@ -55,7 +56,7 @@ namespace Entities.Entities
             modelBuilder.Entity<Categorium>(entity =>
             {
                 entity.HasKey(e => e.CategoriaId)
-                    .HasName("PK__Categori__F353C1C553B6117A");
+                    .HasName("PK__Categori__F353C1C5992211C5");
 
                 entity.Property(e => e.CategoriaId).HasColumnName("CategoriaID");
 
@@ -149,7 +150,7 @@ namespace Entities.Entities
             modelBuilder.Entity<TipoPago>(entity =>
             {
                 entity.HasKey(e => e.MetodoPagoId)
-                    .HasName("PK__TipoPago__A8FEAF7424BCD92F");
+                    .HasName("PK__TipoPago__A8FEAF74B0EEEEBE");
 
                 entity.ToTable("TipoPago");
 
