@@ -1,46 +1,62 @@
-﻿using Frontend.Helpers.Implementations;
-using Frontend.Helpers.Interfaces;
+﻿using Frontend.Helpers.Interfaces;
 using Frontend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Common;
 
 namespace Frontend.Controllers
 {
+    [Authorize]
     public class FacturaController : Controller
     {
 
         IFacturaHelper facturaHelper;
+        ICarritoHelper carritoHelper;
+        /*ITipoPagoHelper tipopagoHelper;*/
 
+        public string Token { get; set; }
 
-        public FacturaController(IFacturaHelper _facturaHelper)
-
+        public FacturaController(IFacturaHelper _facturaHelper
+                                   , ICarritoHelper _carritoHelper
+                )
         {
             facturaHelper = _facturaHelper;
+            carritoHelper = _carritoHelper;
         }
-
 
 
         // GET: FacturaController
         public ActionResult Index()
         {
+            Token = HttpContext.Session.GetString("token");
+            facturaHelper.Token = Token;
 
+            List<FacturaViewModel> facturas = facturaHelper.GetAll();
 
-            List<FacturaViewModel> categories = facturaHelper.GetAll();
-
-            return View(categories);
+            return View(facturas);
         }
 
         // GET: FacturaController/Details/5
         public ActionResult Details(int id)
         {
+
             FacturaViewModel factura = facturaHelper.GetById(id);
+
             return View(factura);
         }
 
         // GET: FacturaController/Create
         public ActionResult Create()
         {
-            return View();
+
+
+            FacturaViewModel factura = new FacturaViewModel();
+            factura.Carrito = carritoHelper.GetAll();
+
+
+
+            return View(factura);
         }
 
         // POST: FacturaController/Create
@@ -64,8 +80,11 @@ namespace Frontend.Controllers
         public ActionResult Edit(int id)
         {
             FacturaViewModel factura = facturaHelper.GetById(id);
+            factura.Carrito = carritoHelper.GetAll();
+
             return View(factura);
         }
+
 
         // POST: FacturaController/Edit/5
         [HttpPost]
@@ -74,7 +93,8 @@ namespace Frontend.Controllers
         {
             try
             {
-                FacturaViewModel facturaViewModel = facturaHelper.EditFactura(factura);
+
+                facturaHelper.EditFactura(factura);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -87,6 +107,7 @@ namespace Frontend.Controllers
         public ActionResult Delete(int id)
         {
             FacturaViewModel factura = facturaHelper.GetById(id);
+
             return View(factura);
         }
 
