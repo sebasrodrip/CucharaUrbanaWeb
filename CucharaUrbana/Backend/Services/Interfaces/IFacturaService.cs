@@ -8,7 +8,7 @@ namespace Backend.Services.Interfaces
         Task <Factura> GetById(int id);
         Task<bool> Add(Factura factura);
         Task<bool> Update(Factura factura);
-        Task<bool> Delete(Factura factura);
+        Task<bool> Delete(int id);
 
 
     }
