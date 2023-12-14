@@ -30,17 +30,13 @@
     <link href="~/css/responsive.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="hero_area">
-        <div class="bg-box">
-            <img src="images/hero-bg.jpg" alt="">
-        </div>
         <!-- header section strats -->
         <header class="header_section">
             <div class="container">
-                <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <nav class="navbar navbar-expand-lg custom_nav-container navbar-dark bg-dark">
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                         <span>
-                            Feane
+                            Cuchara Urbana
                         </span>
                     </a>
 
@@ -64,7 +60,7 @@
                             </li>
                         </ul>
                         <div class="user_option">
-                            <a href="" class="user_link">
+                            <a class="user_link" asp-area="" asp-controller="Account" asp-action="Register">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <a class="cart_link" href="#">
@@ -133,9 +129,9 @@
                     </div>
                 </nav>
             </div>
-            
         </header>
         <!-- end header section -->
+   
             @RenderBody()
 
 

@@ -21,14 +21,14 @@ namespace Frontend.Controllers
 
 
         // GET: ReservacionController
-        public ActionResult Index()
+    /*    public ActionResult Index()
         {
 
 
             List<ReservacionViewModel> reservaciones = reservacionHelper.GetAll();
 
             return View(reservaciones);
-        }
+        } */
 
         // GET: ReservacionController/Details/5
         public ActionResult Details(int id)
@@ -38,7 +38,7 @@ namespace Frontend.Controllers
         }
 
         // GET: ReservacionController/Create
-        public ActionResult Create()
+        public ActionResult Index()
         {
             return View();
         }
@@ -46,7 +46,7 @@ namespace Frontend.Controllers
         // POST: ReservacionController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ReservacionViewModel reservacion)
+        public ActionResult Index(ReservacionViewModel reservacion)
         {
             try
             {
