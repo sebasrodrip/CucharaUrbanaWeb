@@ -51,10 +51,10 @@
                                 <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Inicio<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="Index">Menu</a>
+                                <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="Create">Productos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="about.html">Sobre Nosotros</a>
+                            <a class="nav-link" asp-area="" asp-controller="Pedido" asp-action="Create">Pedidos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Reservacion" asp-action="Create">Reservar</a>
@@ -64,7 +64,7 @@
                             <a class="user_link" asp-area="" asp-controller="Account" asp-action="LogOut">
                                 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
                             </a>
-                            <a class="cart_link" href="#">
+                        <a class="cart_link" asp-area="" asp-controller="Carrito" asp-action="Index">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                 <g>
                                 <g>
@@ -117,14 +117,6 @@
                                 <g>
                   </g>
                 </svg>
-                            </a>
-                            <form class="form-inline">
-                                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </form>
-                            <a href="" class="order_online">
-                                Ver Menú
                             </a>
                         </div>
                     </div>
