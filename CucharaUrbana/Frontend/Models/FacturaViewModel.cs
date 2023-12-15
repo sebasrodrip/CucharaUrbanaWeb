@@ -11,5 +11,9 @@
         public int? MetodoPagoId { get; set; }
         public string? EstadoPago { get; set; }
         public int? TipoPagoId { get; set; }
+
+        public IEnumerable<CarritoViewModel> Carrito { get; set; }
+
+        /*public IEnumerable<TipoPagoViewModel> TipoPago { get; set; }*/
     }
 }

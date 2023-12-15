@@ -1,22 +1,38 @@
-﻿@model IEnumerable<Frontend.Models.ErrorViewModel>
+﻿@model IEnumerable<Frontend.Models.FacturaViewModel>
 
 @{
-    ViewData["Title"] = "Factura";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Factura</h1>
+<h1>Facturas</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.RequestId)
+                @Html.DisplayNameFor(model => model.FacturaId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShowRequestId)
+                @Html.DisplayNameFor(model => model.FechaFactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PagoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetodoPagoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoPago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoPagoId)
             </th>
             <th></th>
         </tr>
@@ -25,15 +41,33 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.RequestId)
+                @Html.DisplayFor(modelItem => item.FacturaId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ShowRequestId)
+                @Html.DisplayFor(modelItem => item.FechaFactura)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.UsuarioId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PagoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetodoPagoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoPago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoPagoId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.FacturaId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.FacturaId }) |
+                    @Html.ActionLink("Delete", "Delete", new {  id=item.FacturaId  })
             </td>
         </tr>
 }

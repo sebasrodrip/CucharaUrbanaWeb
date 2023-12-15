@@ -7,6 +7,7 @@ namespace Frontend.Helpers.Implementations
     public class FacturaHelper : IFacturaHelper
     {
 
+        public string Token { get; set; }
         IServiceRepository _repository;
 
         public FacturaHelper(IServiceRepository serviceRepository)

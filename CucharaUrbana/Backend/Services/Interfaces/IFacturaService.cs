@@ -4,11 +4,11 @@ namespace Backend.Services.Interfaces
 {
     public interface IFacturaService
     {
-        Task<IEnumerable<Factura>> GetFacturaAsync();
-        Factura GetById(int id);
-        bool AddFactura(Factura factura);
-        bool UpdateFactura(Factura factura);
-        bool DeleteFactura(Factura factura);
+        Task<IEnumerable<Factura>> GetFactura();
+        Task <Factura> GetById(int id);
+        Task<bool> Add(Factura factura);
+        Task<bool> Update(Factura factura);
+        Task<bool> Delete(int id);
 
 
     }

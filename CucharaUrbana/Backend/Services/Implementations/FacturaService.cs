@@ -14,43 +14,65 @@ namespace Backend.Services.Implementations
                 _unidadDeTrabajo = unidadDeTrabajo;
         }
 
-        public bool AddFactura(Factura facturas)
-        {
-            bool resultado =_unidadDeTrabajo._facturaDAL.Add(facturas);
-            _unidadDeTrabajo.Complete();
+        public Task<bool> Add(Factura factura)
+        {           
+            try
+            {
+                _unidadDeTrabajo._facturaDAL.Add(factura);
+                _unidadDeTrabajo.Complete();
+                return Task.FromResult(true);
+            }
+            catch (Exception)
+            {
 
-            return resultado;
+                return Task.FromResult(false);
+            }
 
         }
 
-        public bool DeleteFactura(Factura facturas)
+        public Task<bool> Delete(int id)
         {
-            bool resultado = _unidadDeTrabajo._facturaDAL.Remove(facturas);
-            _unidadDeTrabajo.Complete();
+            try
+            {
+                Factura facturas = new Factura { FacturaId = id };
 
-            return resultado;
+                _unidadDeTrabajo._facturaDAL.Remove(facturas);
+                _unidadDeTrabajo.Complete();
+                return Task.FromResult(true);
+
+            }
+            catch (Exception)
+            {
+
+                return Task.FromResult(false); ;
+            }
         }
 
-        public Factura GetById(int id)
+        public async Task<Factura> GetById(int id)
         {
-            Factura facturas;
-            facturas =  _unidadDeTrabajo._facturaDAL.Get(id);
+            Factura factura = _unidadDeTrabajo._facturaDAL.Get(id);
+            return factura;
+        }
+
+        public async Task<IEnumerable<Factura>> GetFactura()
+        {
+            IEnumerable<Factura> facturas = await _unidadDeTrabajo._facturaDAL.GetAll();
             return facturas;
         }
 
-        public async Task<IEnumerable<Factura>> GetFacturaAsync()
+        public Task<bool> Update(Factura factura)
         {
-            IEnumerable<Factura> facturas;
-            facturas = await _unidadDeTrabajo._facturaDAL.GetAll();
-            return facturas;
-        }
+            try
+            {
+                _unidadDeTrabajo._facturaDAL.Update(factura);
+                _unidadDeTrabajo.Complete();
+                return Task.FromResult(true);
+            }
+            catch (Exception)
+            {
 
-        public bool UpdateFactura(Factura facturas)
-        {
-            bool resultado = _unidadDeTrabajo._facturaDAL.Update(facturas);
-            _unidadDeTrabajo.Complete();
-
-            return resultado;
+                return Task.FromResult(false);
+            }
         }
     }
 }
