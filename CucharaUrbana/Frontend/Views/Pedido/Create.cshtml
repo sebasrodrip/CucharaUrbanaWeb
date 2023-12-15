@@ -3,46 +3,48 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Create Pedido</h1>
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <div class="form-group">
-                <label asp-for="FechaPedido"></label>
-                <input asp-for="FechaPedido" class="form-control" />
-                <span asp-validation-for="FechaPedido" class="text-danger"></span>
+<!-- book section -->
+<section class="book_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                Reservar una mesa:
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form_container">
+                    <form asp-action="Create">
+                        <div>
+                            <label asp-for="FechaPedido" class="control-label"> Fecha y hora de reservación</label>
+                            <input asp-for="FechaPedido" class="form-control" />
+                            <span asp-validation-for="FechaPedido" class="text-danger"></span>
+                        </div>
+                        <div>
+                            <label asp-for="MesaPedido" class="control-label"> Número de Mesa</label>
+                            <input asp-for="MesaPedido" class="form-control" />
+                            <span asp-validation-for="MesaPedido" class="text-danger"></span>
+                        </div>
+                        <div>
+                            <label asp-for="EstadoPedido" class="control-label">Estado</label>
+                            <input asp-for="EstadoPedido" class="form-control" />
+                            <span asp-validation-for="EstadoPedido" class="text-danger"></span>
+                        </div>
+                        <div >
+                            @Html.DropDownListFor(model => model.ProductoId, new SelectList(Model.Productos, "ProductoId", "Nombre"), "Seleccionar Producto")
+                            <span asp-validation-for="ProductoId" class="text-danger"></span>
+                        </div>
+                        <div class="btn_box">
+                            <button type="submit" value="Create">
+                                Solicitar
+                            </button>
+                            <button asp-area="" asp-controller="Pedidos" asp-action="Index">
+                                Ver Pedidos
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label asp-for="MesaPedido"></label>
-                <input asp-for="MesaPedido" class="form-control" />
-                <span asp-validation-for="MesaPedido" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="EstadoPedido"></label>
-                <input asp-for="EstadoPedido" class="form-control" />
-                <span asp-validation-for="EstadoPedido" class="text-danger"></span>
-            </div>
-
-
-            <div class="form-group">
-                <label asp-for="ProductoId" class="control-label"></label>
-                @Html.DropDownListFor(model => model.ProductoId, new SelectList(Model.Productos, "ProductoId", "Nombre"), "--Seleccionar Producto--")
-                <span asp-validation-for="ProductoId" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</section>
