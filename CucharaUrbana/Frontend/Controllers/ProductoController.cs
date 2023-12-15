@@ -150,8 +150,9 @@ namespace Frontend.Controllers
                 productoHelper.DeleteProducto(producto.ProductoId);
                 return RedirectToAction(nameof(Index));
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return View();
             }
         }
