@@ -55,6 +55,9 @@ namespace Frontend.Controllers
         {
             try
             {
+                ProductoViewModel producto = productoHelper.GetById(carrito.ProductoId);
+                carrito.PrecioUnitario = producto.Precio * carrito.Cantidad;
+
                 carritoHelper.AddCarrito(carrito);
 
                 return RedirectToAction(nameof(Index));
