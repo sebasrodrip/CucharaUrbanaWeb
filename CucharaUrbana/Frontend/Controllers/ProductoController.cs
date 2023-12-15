@@ -1,14 +1,11 @@
-﻿using Entities.Entities;
-using Frontend.Helpers.Interfaces;
+﻿using Frontend.Helpers.Interfaces;
 using Frontend.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NuGet.Common;
 
 namespace Frontend.Controllers
 {
-    [Authorize]
+    
     public class ProductoController : Controller
     {
 
@@ -28,6 +25,7 @@ namespace Frontend.Controllers
             categoriaHelper = _categoriaHelper;
             carritoHelper = _carritoHelper;
         }
+        [Authorize]
         // GET: ProductoController
         public ActionResult Index()
         {
@@ -38,7 +36,7 @@ namespace Frontend.Controllers
 
             return View(productos);
         }
-
+        [Authorize]
         // GET: ProductoController/Details/5
         public ActionResult Details(int id)
         {
@@ -48,7 +46,7 @@ namespace Frontend.Controllers
 
             return View(producto);
         }
-
+        [Authorize]
         // GET: ProductoController/Create
         public ActionResult Create()
         {
@@ -59,7 +57,7 @@ namespace Frontend.Controllers
 
             return View(producto);
         }
-
+        [Authorize]
         // POST: ProductoController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -107,7 +105,7 @@ namespace Frontend.Controllers
                 return View("Error");
             }
         }
-
+        [Authorize]
         // GET: ProductoController/Edit/5
         public ActionResult Edit(int id)
         {
@@ -116,7 +114,7 @@ namespace Frontend.Controllers
 
             return View(producto);
         }
-
+        [Authorize]
         // POST: ProductoController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -133,7 +131,7 @@ namespace Frontend.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: ProductoController/Delete/5
         public ActionResult Delete(int id)
         {
@@ -141,7 +139,7 @@ namespace Frontend.Controllers
 
             return View(producto);
         }
-
+        [Authorize]
         // POST: ProductoController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -152,7 +150,7 @@ namespace Frontend.Controllers
                 productoHelper.DeleteProducto(producto.ProductoId);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex) 
             {
                 return View();
             }
