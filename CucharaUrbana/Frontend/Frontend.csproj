@@ -5,45 +5,11 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Images\**" />
-    <Content Remove="Images\**" />
-    <EmbeddedResource Remove="Images\**" />
-    <None Remove="Images\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\css\style.css.map" />
-    <None Include="wwwroot\css\style.scss" />
-    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
-    <None Include="wwwroot\Images\Juicy.jpg" />
-    <None Include="wwwroot\Images\Krunchy.jpg" />
-    <None Include="wwwroot\Images\Melted.jpg" />
-    <None Include="wwwroot\Images\Urban.jpg" />
-    <None Include="wwwroot\js\bootstrap.js" />
-    <None Include="wwwroot\js\custom.js" />
-    <None Include="wwwroot\js\jquery-3.4.1.min.js" />
-    <None Include="wwwroot\js\site.js" />
-    <None Remove="Views\Pedido\Index.cshtml~RF13b2d8.TMP" />
-  </ItemGroup>
-
+	
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Backend\Backend.csproj" />
-
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Views\Pedido\Index.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
   </ItemGroup>
 
 </Project>

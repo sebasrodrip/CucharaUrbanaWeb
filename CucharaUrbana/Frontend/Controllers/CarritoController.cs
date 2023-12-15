@@ -1,7 +1,5 @@
-﻿using Entities.Entities;
-using Frontend.Helpers.Interfaces;
+﻿using Frontend.Helpers.Interfaces;
 using Frontend.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Frontend.Controllers

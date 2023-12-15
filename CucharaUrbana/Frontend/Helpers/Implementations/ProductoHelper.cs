@@ -33,6 +33,7 @@ public class ProductoHelper : IProductoHelper
         if (responseMessage != null)
         {
             var content = responseMessage.Content.ReadAsStringAsync().Result;
+
         }
     }
 
@@ -50,6 +51,9 @@ public class ProductoHelper : IProductoHelper
 
     public List<ProductoViewModel> GetAll()
     {
+        _repository.Client.DefaultRequestHeaders.Authorization =
+        new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Token);
+
         List<ProductoViewModel> lista = new List<ProductoViewModel>();
 
         HttpResponseMessage responseMessage = _repository.GetResponse("api/Producto");

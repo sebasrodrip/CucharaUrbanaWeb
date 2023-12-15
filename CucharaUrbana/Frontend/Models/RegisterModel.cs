@@ -15,9 +15,8 @@ namespace Frontend.Models
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirmar Contraseña")]
-        [Compare("Contraseña",
-            ErrorMessage = "Contraseñas no coinciden.")]
+        [Compare("Password", ErrorMessage = "Passwords do not match")]
+        [Required(ErrorMessage = "Password confirmation is required")]
         public string ConfirmPassword { get; set; }
     }
 }

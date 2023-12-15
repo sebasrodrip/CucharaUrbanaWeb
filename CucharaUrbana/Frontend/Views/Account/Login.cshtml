@@ -42,7 +42,6 @@
 
 
                         <button class="btn btn-warning btn-lg btn-block" type="submit">Login</button>
-
                         <hr class="my-4">
                         </form>
                     </div>
@@ -52,8 +51,8 @@
     </div>
 </section>
 
-
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -10,13 +10,13 @@
                 @Html.DisplayNameFor(model => model.ReservacionId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaReservacion)
+                Fecha y Hora
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MesaReservacion)
+                # de Mesa
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DetalleReservacion)
+                Personas
             </th>
             <th></th>
         </tr>
@@ -33,6 +33,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.MesaReservacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DetalleReservacion)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ReservacionId }) |

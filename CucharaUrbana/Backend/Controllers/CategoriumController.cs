@@ -103,7 +103,7 @@ namespace Backend.Controllers
         }
 
         // DELETE api/<CategoriumController>/5
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             _categoriumService.DeleteCategorium(id);

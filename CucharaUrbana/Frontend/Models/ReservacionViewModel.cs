@@ -1,6 +1,4 @@
-﻿using Entities.Entities;
-
-namespace Frontend.Models
+﻿namespace Frontend.Models
 {
     public class ReservacionViewModel
     {

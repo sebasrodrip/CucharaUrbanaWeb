@@ -50,7 +50,7 @@ namespace Frontend.Controllers
 
                     if (!EsValido)
                     {
-                        ViewBag.Message = "Invalid Credentials";
+                        ViewBag.Message = "Credenciales Inválidos";
                         return View(user);
                     }
 
@@ -84,14 +84,14 @@ namespace Frontend.Controllers
                 return View(user);
 
 
-               
+
             }
             catch (Exception)
             {
 
                 throw;
             }
-           
+
         }
 
         public async Task<IActionResult> LogOut()
@@ -100,11 +100,5 @@ namespace Frontend.Controllers
             return LocalRedirect("/");
         }
 
-
-        [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
     }
 }

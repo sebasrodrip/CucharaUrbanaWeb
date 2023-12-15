@@ -50,15 +50,15 @@ namespace Backend.Controllers
 
         public CarritoController(ICarritoService carritoService)
         {
-            _carritoService = carritoService;  
+            _carritoService = carritoService;
         }
 
 
         // GET: api/<CarritoController>
         [HttpGet]
-        public async Task <IActionResult> Get()
+        public async Task<IActionResult> Get()
         {
-            IEnumerable<Carrito> carritos =await _carritoService.GetCarritos();
+            IEnumerable<Carrito> carritos = await _carritoService.GetCarritos();
             List<CarritoModel> carritoModels = new List<CarritoModel>();
 
             foreach (var item in carritos)
@@ -74,7 +74,7 @@ namespace Backend.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            Carrito carrito =await _carritoService.GetById(id);
+            Carrito carrito = await _carritoService.GetById(id);
             return Ok(this.Convertir(carrito));
         }
 
@@ -105,7 +105,7 @@ namespace Backend.Controllers
         }
 
         // DELETE api/<CarritoController>/5
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             _carritoService.Delete(id);

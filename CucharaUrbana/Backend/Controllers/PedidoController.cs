@@ -95,7 +95,7 @@ namespace Backend.Controllers
 
 
         // DELETE api/<PedidoController>/5
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             _pedidoService.DeletePedido(id);
