@@ -13,7 +13,6 @@ namespace Frontend.Controllers
 
         IFacturaHelper facturaHelper;
         ICarritoHelper carritoHelper;
-        /*ITipoPagoHelper tipopagoHelper;*/
 
         public string Token { get; set; }
 

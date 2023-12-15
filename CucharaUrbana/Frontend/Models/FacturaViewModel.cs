@@ -2,7 +2,7 @@
 {
     public class FacturaViewModel
     {
-
+        public string Token { get; set; }
         public int FacturaId { get; set; }
         public DateTime FechaFactura { get; set; }
         public int UsuarioId { get; set; }
