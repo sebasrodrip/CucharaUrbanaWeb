@@ -79,7 +79,7 @@ namespace Backend.Controllers
 
             ApplicationUser user = new ApplicationUser()
             {
-                Email = model.Email,
+                // Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.Username
             };

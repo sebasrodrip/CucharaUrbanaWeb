@@ -1,7 +1,7 @@
 ﻿@model Frontend.Models.UserViewModel
 
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Register";
     Layout = "";
 }
 <!-- Basic -->
@@ -24,8 +24,8 @@
                 <div class="card shadow-2-strong" style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center">
 
-                        <h3 class="mb-5">Login</h3>
-                        <form asp-controller="Account" asp-action="Login" method="post">
+                        <h3 class="mb-5">Register</h3>
+                        <form asp-controller="Account" asp-action="Register" method="post">
                             @Html.HiddenFor(Model => Model.ReturnUrl)
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="form-outline mb-4">
@@ -41,19 +41,12 @@
                         </div>
 
 
-                        <button class="btn btn-warning btn-lg btn-block" type="submit">Login</button>
+                            <button class="btn btn-warning btn-lg btn-block" type="submit">Register</button>
                         <hr class="my-4">
                         </form>
-                        <button class="btn btn-warning btn-lg btn-block" asp-area="" asp-controller="Account" asp-action="Register">Registrarse</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
