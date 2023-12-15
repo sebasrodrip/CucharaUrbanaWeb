@@ -110,7 +110,7 @@ namespace Backend.Controllers
         }
 
         // DELETE api/<ProductoController>/5
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             _productoService.Delete(id);
