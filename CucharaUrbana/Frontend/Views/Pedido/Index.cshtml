@@ -22,9 +22,6 @@
                 @Html.DisplayNameFor(model => model.MesaPedido)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UsuarioId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.EstadoPedido)
             </th>
             <th>
@@ -46,9 +43,6 @@
                 @Html.DisplayFor(modelItem => item.MesaPedido)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UsuarioId)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.EstadoPedido)
             </td>
             <td>
@@ -56,7 +50,6 @@
             </td>
             <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.PedidoId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.PedidoId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.PedidoId })
             </td>
         </tr>

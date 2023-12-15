@@ -91,3 +91,8 @@ INSERT INTO Producto (Nombre, CategoriaID, Precio) VALUES ('Extra papas fritas',
 INSERT INTO TipoPago (TipoPago) VALUES ('Efectivo');
 INSERT INTO TipoPago (TipoPago) VALUES ('Tarjeta');
 
+INSERT INTO Carrito (ProductoID, Cantidad, PrecioUnitario)
+VALUES 
+    (1, 2, 4600),  -- Agregar 2 unidades del producto con ProductoID 1
+    (3, 1, 5300),  -- Agregar 1 unidad del producto con ProductoID 3
+    (2, 3, 4600);  -- Agregar 3 unidades del producto con ProductoID 2

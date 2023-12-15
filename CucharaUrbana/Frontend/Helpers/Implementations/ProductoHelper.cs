@@ -36,7 +36,7 @@ public class ProductoHelper : IProductoHelper
         }
     }
 
-    public ProductoViewModel EdiProducto(ProductoViewModel ProductoViewModel)
+    public ProductoViewModel EditProducto(ProductoViewModel ProductoViewModel)
     {
         ProductoViewModel producto = new ProductoViewModel();
         HttpResponseMessage responseMessage = _repository.PutResponse("api/Producto", ProductoViewModel);

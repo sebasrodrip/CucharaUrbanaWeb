@@ -8,6 +8,7 @@ namespace Frontend.Helpers.Implementations
     {
 
         IServiceRepository _repository;
+        public string Token { get; set; }
 
         public ReservacionHelper(IServiceRepository serviceRepository)
         {
