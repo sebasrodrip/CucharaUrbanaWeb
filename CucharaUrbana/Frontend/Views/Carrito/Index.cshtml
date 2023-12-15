@@ -3,12 +3,6 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Carrito</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -16,13 +10,13 @@
                 @Html.DisplayNameFor(model => model.CarritoId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProductoId)
+                Nombre del Producto
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cantidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PrecioUnitario)
+                Precio Unitario
             </th>
             <th></th>
         </tr>
@@ -34,7 +28,7 @@
                     @Html.DisplayFor(modelItem => item.CarritoId)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ProductoId)
+                    @Html.DisplayFor(modelItem => item.NombreProducto)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Cantidad)

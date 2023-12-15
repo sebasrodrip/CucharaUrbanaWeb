@@ -1,4 +1,5 @@
-﻿using Frontend.Helpers.Interfaces;
+﻿using Entities.Entities;
+using Frontend.Helpers.Interfaces;
 using Frontend.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,12 @@ namespace Frontend.Controllers
         public ActionResult Index()
         {
             List<CarritoViewModel> carritos = carritoHelper.GetAll();
+
+            foreach (var carrito in carritos)
+            {
+                ProductoViewModel producto = productoHelper.GetById(carrito.ProductoId);
+                carrito.NombreProducto = producto.Nombre;
+            }
 
             return View(carritos);
         }

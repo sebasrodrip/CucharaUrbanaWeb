@@ -1,4 +1,5 @@
-﻿using Frontend.Helpers.Interfaces;
+﻿using Entities.Entities;
+using Frontend.Helpers.Interfaces;
 using Frontend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
